@@ -1,3 +1,19 @@
+class circle
+  {
+  private:
+    unsigned int x;		//координаты
+    unsigned int y;
+    unsigned int rad;		//радиус окружности
+  public:
+    point() {x=0; y=0; rad=0;}
+    point(unsigned int h, unsigned int i, unsigned int r) {x=h; y=i; rad=r;}
+    unsigned int getX() const {return x;}	//возврат координат
+    unsigned int getY() const {return y;}
+    unsigned int getRad() const {return rad;}	//возврат радиуса
+    void reRad(unsigned int r) {rad=r}		//изменение радиуса
+    void reCoord(unsigned int h, unsigned int i) {x=h; y=i;}	//изменение координат
+  };
+  
 class person
   {
   private:		
@@ -15,22 +31,15 @@ class user : public person
     unsigned int id;		//айди
     unsigned int idVk;		//айди вконтакте
     unsigned int idInst;	//айди инстаграмма
-    unsigned int idTwit;	//айди твиттера
-    unsigned int rad;		//радиус
-    unsigned int x, y;		//координаты
+    circle circ;		//окружность с центром в местоположении пользователя, с радиусом ,в котором он желает видеть людей
   public:
-    user() {name="0"; password="0"; id=0; idVk=0; idInst=0; idTwit=0; rad=0; x=0; y=0;}
-    user(string n, string p, unsigned int d, unsigned int v, unsigned int i, unsigned int t, unsigned int r, unsigned int a, unsigned int b) {name=n; password=p; id=d; idVk=v; idInst=i; idTwit=t; rad=r; x=a; y=b}
-    void reRad(unsigned int r) {rad=r;}	//изменение радиуса
-    void reCoord(unsigned int a, unsigned int b) {x=a; y=b;}	//изменение координат
-    string getName() {return name;}	//возврат имени
-    unsigned int getRad() {return rad;}	//возврат радиуса
-    unsigned int getX() {return x;}	//возврат координат
-    unsigned int getY() {return y;}	
-    void hello();		//функция привет
-    void vk();			//написать сообщение вк
-    void inst();		//просмотр инстаграм пользователя
-    void twit();		//просмотр твиттера пользователя
+    user() {name="0"; password="0"; id=0; idVk=0; idInst=0; idTwit=0;}
+    user(string n, string p, unsigned int d, unsigned int v, unsigned int i, unsigned int t) {name=n; password=p; id=d; idVk=v; idInst=i; idTwit=t;}
+    string getName() const {return name;}	//возврат имени	
+    void hello() const;		//функция привет
+    void vk() const;		//написать сообщение вк
+    void inst() const;		//просмотр инстаграм пользователя
+    void twit() const;		//просмотр твиттера пользователя
   }; 
   
 class admin : public person
