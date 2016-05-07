@@ -1,2 +1,2 @@
 all:
-	g++ main.cpp -o radnex
+	g++ main.cpp menu.cpp -g -o radnex
