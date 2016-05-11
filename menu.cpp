@@ -2,21 +2,23 @@
 #include <vector>
 #include <iostream>
 #include "main.h"
-#include "person.h"
+//#include "person.h"
 using namespace std;
 
 int menu(char* data)
   {
+  int c;
+  admin adm;
   vector<user> users;
-  //load(char* data, users);	//функция загрузки вектора из файла 
+  c=load(data, users, adm);	//функция загрузки вектора из файла 
   int i;
   int u=0;
-  int c=1;
   string tmp;
-  if(users.size()==0)
+  if(users.size()==1)
     {
     cout<<"Добро пожаловать. Мы рады приветствовать Вас в RADNEX. Вы наш первый пользователь.\n";
     reg(users);	//функция регистрации
+    c=2;
     }
     cout<<"\n-----Добро пожаловать-----\n\n";
     while(1)
@@ -41,7 +43,7 @@ int menu(char* data)
             switch(i)
               {
               case 1:
-                //u=reg(users);	//функция регистрации
+                reg(users);	//функция регистрации
                 if(u>=0) c=2;	//в случае уданой регистрации возвращается номер элемнта вектора, который >=0
                 break;
               case 2:
@@ -141,6 +143,7 @@ int menu(char* data)
             }
           break;  
         case 4:
+          save(data, users, adm);
           return 0;
         }
       }
