@@ -1,16 +1,22 @@
 #include "main.h"
 #include <iostream>
-#include <vector>
 #include <cstring>
 #include <fstream>
 using namespace std;
 
-int reg(vector<user> &users)	//функция регистрации
+user* reg(unsigned int &id, user *beg, char* data)	//функция регистрации
   {
+  user *pUs;
+  user *pU;
   string tmp;
   string n, m, p;
   unsigned int v, i, d, a, b, r;
-  getline(cin, tmp);
+  ifstream fi;
+  fi.open(data);
+  fi >> d;
+  fi.close();
+  d++; 
+  //getline(cin, tmp);
   cout << "\n-----Регистрация------\n\n";
   cout << "Введите имя и фамилию через пробел: ";
   getline(cin, n);
@@ -79,11 +85,17 @@ int reg(vector<user> &users)	//функция регистрации
     else break;
     }
   circle c(a, b, r);
-  users.push_back(user(n, m, p, d, v, i, c));
-  /*users[0].show();
-  cout << endl;
-  users[0].showad();*/
-  cout << users[0];
+  pU=new user(n, m, p, d, v, i, c);
+  cout<<(*pU);
+  pUs=beg;
+  while(pUs!=NULL)
+    pUs=pUs->next;
+  if(beg==NULL) beg=pU;
+  else pUs=pU;
+  //pUs->next=NULL;
+  //if(beg==NULL) beg=pU;
+  beg->showad();
+  return (beg);
   }
 
 ostream &operator<<(ostream &stream, admin adm) //перегрузка оператора << класса admin
@@ -100,7 +112,7 @@ istream &operator>>(istream &stream, admin &adm) //перегрузка опер
   
 ostream &operator<<(ostream &stream, user usr)	//перегрузка оператора << класса user
   {
-  stream << usr.id << ' ' << usr.idVk << ' ' << usr.idInst << ' ' << usr.circ << ' ' << usr.password << ' ' << usr.mail << ' ' << usr.name << endl;
+  stream << usr.id << ' ' << usr.idVk << ' ' << usr.idInst << ' ' << usr.circ << ' ' << usr.password << ' ' << usr.mail << ' ' << usr.name;
   return stream;
   } 
  
@@ -121,8 +133,9 @@ istream &operator>>(istream &stream, circle &cir) //перегрузка опе�
   stream >> cir.x >> cir.y >> cir.rad;
   return stream;
   }
-int load(char* data, vector<user> &users, admin &adm)	//загрузка данных из файла
+user* load(char* data, admin &adm)	//загрузка данных из файла
   {
+  user *beg=NULL, *pU, *end=NULL;
   int d=0;
   int i;
   ifstream fi;
@@ -136,33 +149,29 @@ int load(char* data, vector<user> &users, admin &adm)	//загрузка дан�
     fo << "0" << endl << adm;
     fo.close();
     }
-  /*if(!fi)	
-    {
-    cout << "Ошибка открытия файла\n";
-    return 4;
-    }*/
   else
     {
     fi >> adm;
     i=0;
-  /*if(fi.eof())
-    {
-    fi.close();
-    return 1;
-    }*/
-    while(!fi.eof())
-      { 
-      fi>>users[i];
-      cout << users[i];
-      i++;
+    while(fi)
+      {
+      pU=new user; 
+      fi>>(*pU);
+      if(pU->getId()==0) break;
+      if(beg==NULL) beg=pU;
+      else end->next=pU;
+      end=pU;
+      end->next=NULL;
       }
     }
   fi.close();
-  return 1;
+  return beg;
   }
   
-int save(char* data, vector<user> &users, admin &adm)
+int save(char* data, user *beg , admin &adm)
   {
+  user u;
+  user *pU;
   int i;
   unsigned int d;
   ifstream fi;
@@ -172,8 +181,15 @@ int save(char* data, vector<user> &users, admin &adm)
   fi.close();
   fo.open(data);
   fo << d << endl;
-  fo << adm << endl;
-  for(i=0; i<users.size(); i++)
-    fo << users[i];
+  fo << adm;
+  //beg->showad();
+  //(*beg).showad();
+  pU=beg;
+  while(pU!=NULL)
+    {
+    (*pU).showad();
+    fo<<endl<<(*pU);
+    pU=pU->next;
+    }
   fo.close();
   } 
