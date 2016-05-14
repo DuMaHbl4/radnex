@@ -1,5 +1,4 @@
 #include <cstring>
-#include <vector>
 #include <iostream>
 #include "main.h"
 //#include "person.h"
@@ -7,17 +6,24 @@ using namespace std;
 
 int menu(char* data)
   {
-  int c;
+  unsigned int id;
+  int c=1;
   admin adm;
-  vector<user> users;
-  c=load(data, users, adm);	//функция загрузки вектора из файла 
+  user *pU;
+  user *beg;	//указатель на начало списка
+  beg=load(data, adm);	//функция загрузки из файла 
   int i;
+  cout<<(*beg);
   int u=0;
   string tmp;
-  if(users.size()==1)
+  if(beg==NULL)
     {
     cout<<"Добро пожаловать. Мы рады приветствовать Вас в RADNEX. Вы наш первый пользователь.\n";
-    reg(users);	//функция регистрации
+    beg=reg(id, beg, data);	//функция регистрации
+    beg->showad();
+    pU=beg;
+    while(pU->next!=NULL)
+      if(id==pU->getId()) break;
     c=2;
     }
     cout<<"\n-----Добро пожаловать-----\n\n";
@@ -43,7 +49,7 @@ int menu(char* data)
             switch(i)
               {
               case 1:
-                reg(users);	//функция регистрации
+                beg=reg(id, beg, data);	//функция регистрации
                 if(u>=0) c=2;	//в случае уданой регистрации возвращается номер элемнта вектора, который >=0
                 break;
               case 2:
@@ -143,7 +149,7 @@ int menu(char* data)
             }
           break;  
         case 4:
-          save(data, users, adm);
+          save(data, beg, adm);
           return 0;
         }
       }
