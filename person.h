@@ -15,11 +15,14 @@ class circle
     unsigned int getRad() const {return rad;}	//возврат радиуса
     void reRad(unsigned int r) {rad=r;}		//изменение радиуса
     void reCoord(unsigned int h, unsigned int i) {x=h; y=i;}	//изменение координат
+    void showcir() const {cout << x << ' ' << y << ' ' << rad << ' ';}
+    friend ostream &operator<<(ostream &stream, circle cir);
+    friend istream &operator>>(istream &stream, circle &cir);
   };
   
 class person
   {
-  private:		
+  protected:		
     string name;		//имя
     string password;  		//пароль
     string mail;		//почта 
@@ -29,9 +32,11 @@ class person
     void rePass(string p, string newP);	//изменение пароля
     void login(string n, string p);	//вход
     string getName() const {return name;}
-  };
+    void shov() const {cout << name;}
+    void shovad() const {cout << name << ' ' << password << ' ' << mail << ' ';}
+    };
   
-class user : private person
+class user : protected person
   {
   private:
     unsigned int id;		//айди
@@ -39,16 +44,24 @@ class user : private person
     unsigned int idInst;	//айди инстаграмма
     circle circ;		//окружность с центром в местоположении пользователя, с радиусом ,в котором он желает видеть людей
   public:
-    user() {id=0; idVk=0; idInst=0;}
-    user(string n, string p, string m, unsigned int d, unsigned int v, unsigned int i, unsigned int t, circle c):person(n, p, m) {id=d; idVk=v; idInst=i; circ=c;}
+    user *next;
+    user() {id=0; idVk=0; idInst=0; next=NULL;}
+    user(string n, string p, string m, unsigned int d, unsigned int v, unsigned int i, circle c):person(n, p, m) {id=d; idVk=v; idInst=i; circ=c; next=NULL;}
     void hello() const;		//функция привет
     void vk() const;		//написать сообщение вк
     void inst() const;		//просмотр инстаграм пользователя
-    void twit() const;		//просмотр твиттера пользователя
+    void twit() const;		//просмотр твиттера пользователя 
+    unsigned int getId() const {return id;}
+    void show() const {shov();}
+    void showad() const {shovad(); cout << id << ' ' << idVk << ' ' << idInst << ' '; circ.showcir();}  
+    friend ostream &operator<<(ostream &stream, user usr);  
+    friend istream &operator>>(istream &stream, user &usr);
   }; 
   
 class admin : public person
   {
   public:
-    admin(): person ("admin", "password", "adm@radnex.com"){};    
+    admin(): person ("admin", "password", "adm@radnex.com"){}; 
+    friend ostream &operator<<(ostream &stream, admin adm);
+    friend istream &operator>>(istream &stream, admin &adm);   
   };
