@@ -29,21 +29,24 @@ class person
   public:
     person() {name="0"; password="0"; mail="0";}
     person(string n, string p, string m) {name=n; password=p; mail=m;}
-    void rePass(string p, string newP);	//изменение пароля
+    void rePass(string newP) {password=newP; cout <<"new password +";}	//изменение пароля
     void login(string n, string p);	//вход
     string getName() const {return name;}
+    string getMail() const {return mail;}
     void shov() const {cout << name;}
     void shovad() const {cout << name << ' ' << password << ' ' << mail << ' ';}
+    bool avto(string e, string p) const {if(mail==e && password==p) return true; else return false;}	//проверка при на имя и пароль
+    bool pass(string p) const {if(p==password) return true; else return false;}	//проверка на правильность пароля
     };
   
-class user : protected person
+class user : public person
   {
   private:
     unsigned int id;		//айди
     unsigned int idVk;		//айди вконтакте
     unsigned int idInst;	//айди инстаграмма
-    circle circ;		//окружность с центром в местоположении пользователя, с радиусом ,в котором он желает видеть людей
   public:
+    circle circ;		//окружность с центром в местоположении пользователя, с радиусом ,в котором он желает видеть людей
     user *next;
     user() {id=0; idVk=0; idInst=0; next=NULL;}
     user(string n, string p, string m, unsigned int d, unsigned int v, unsigned int i, circle c):person(n, p, m) {id=d; idVk=v; idInst=i; circ=c; next=NULL;}

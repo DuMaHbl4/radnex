@@ -9,12 +9,12 @@ int menu(char* data)
   unsigned int id;
   int c=1;
   admin adm;
-  user *pU;
+  user *pUs;	//дополнительный указатель на класс юзера
+  user *pU;	//указатель на авторизовавшегося юзера
   user *beg;	//указатель на начало списка
   beg=load(data, adm);	//функция загрузки из файла 
   int i;
-  cout<<(*beg);
-  int u=0;
+  unsigned int u=0;
   string tmp;
   if(beg==NULL)
     {
@@ -34,6 +34,10 @@ int menu(char* data)
         case 1:
           while(1)
             {
+            if(beg==NULL)
+              {
+              beg=load(data, adm);
+              }
             cout<<"1. Зарегистрироваться\n2. Авторизоваться\n3. Выйти из программы\n";
             while(1)
               {
@@ -46,15 +50,15 @@ int menu(char* data)
                 }
               else break;
               }
+              cin.clear();
+              while(cin.get()!='\n');
             switch(i)
               {
               case 1:
-                beg=reg(id, beg, data);	//функция регистрации
-                if(u>=0) c=2;	//в случае уданой регистрации возвращается номер элемнта вектора, который >=0
+                beg=reg(u, beg, data);	//функция регистрации
                 break;
               case 2:
-                //u=avt(users); 	//функция авторизации
-                if(u>=0) c=2;	//анологично с регистрацией
+                u=avt(beg); 	//функция авторизации
                 break;
               case 3:
                 c=4;
@@ -62,7 +66,18 @@ int menu(char* data)
               default:
                 cout<<"\n\nВведите одну из цифр от 0 до 2!\n";
               }
-            if(c!=1) break; 
+            if(c==4) break;
+            if(u!=0)
+              {
+              pU=beg;
+              while(pU!=NULL)	//выбор указателя на авторизовавшегося пользователя
+                {
+                if(u==pU->getId()) break;
+                pU=pU->next;
+                }
+              c=2;
+              break;
+              } 
             } 
             break;
         case 2:
@@ -110,7 +125,7 @@ int menu(char* data)
                   else break;
                   }
                 cout << endl;
-                //users[u].circle.reCoord(a,b);
+                pU->circ.reCoord(a,b);
                 break;
                 } 
               case 2:	//изменение радиуса
@@ -128,18 +143,28 @@ int menu(char* data)
                     }
                   else break;
                   } 
-                //users[u].circle.reRad(r);
+                pU->circ.reRad(r);
                 break;
                 }
-              /*case 3:
-                showr(u, users);	//функция показа списка людей рядом
+              case 3:
+                showr(beg, pU);	//функция показа списка людей рядом
                 break;
               case 4:
-                setting(u, users);	//функция настройки аккаунта
+                beg=setting(c, beg, pU);	//функция настройки аккаунта
                 break;	
               case 5:
+                save(data, beg, adm);
+                pU=beg;
+                while(pU!=NULL)
+                  {
+                  pUs=pU;
+                  delete pU;
+                  pU=pUs->next;
+                  }
+                beg=NULL;
+                u=0;
                 c=1;
-                break;*/
+                break;
               case 6:
                 c=4;
                 break;

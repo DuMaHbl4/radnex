@@ -1,27 +1,51 @@
 #include "main.h"
 #include <iostream>
+#include <cmath>
 #include <cstring>
 #include <fstream>
 using namespace std;
 
-user* reg(unsigned int &id, user *beg, char* data)	//функция регистрации
-  {
+user* reg(unsigned int &d, user *beg, char* data)	//функция регистрации
+  { 
+  bool kont;
+  int l; 	
+  user *end;
   user *pUs;
   user *pU;
   string tmp;
   string n, m, p;
-  unsigned int v, i, d, a, b, r;
+  unsigned int v, i, a, b, r;
   ifstream fi;
   fi.open(data);
   fi >> d;
   fi.close();
-  d++; 
-  //getline(cin, tmp);
+  d++;
   cout << "\n-----Регистрация------\n\n";
   cout << "Введите имя и фамилию через пробел: ";
   getline(cin, n);
-  cout << "\nВведите Email: ";
-  cin >> m;
+  while(1)
+    {
+    cout << "Email: ";
+    kont=false;
+    cin >> m;
+    pUs=beg;
+    while(pUs!=NULL)	//проверка на оригинальность введенного email 
+      {
+      if(pUs->getMail()==m) 
+        {
+        kont=true;
+        cout << "\nEmail уже используется!\n\n1. Ввести еще раз\n2. Отменить регистрацию\n";
+        cin >> l;
+        if(l==2) 
+          {
+          d=0;
+          return (beg);
+          }
+        }
+      pUs=pUs->next;
+      }
+    if(kont==false) break;
+    }
   cout << "\nВведите пароль: ";
   cin >> p;
   cout << "\nВведите ваш id Вконтакте: ";
@@ -85,17 +109,54 @@ user* reg(unsigned int &id, user *beg, char* data)	//функция регист
     else break;
     }
   circle c(a, b, r);
-  pU=new user(n, m, p, d, v, i, c);
-  cout<<(*pU);
+  pU=new user(n, p, m, d, v, i, c);
+  end=beg;
+  if(beg!=NULL)
+    while(end->next!=NULL) end=end->next;	//поиск конца списка
   pUs=beg;
   while(pUs!=NULL)
     pUs=pUs->next;
   if(beg==NULL) beg=pU;
-  else pUs=pU;
+  else end->next=pU;
+  end=pU;
+  end->next=NULL;
   //pUs->next=NULL;
   //if(beg==NULL) beg=pU;
-  beg->showad();
+  //beg->showad();
+  pU=beg;
+  while(pU!=NULL)
+    {
+    pU=pU->next;
+    }
   return (beg);
+  }
+
+unsigned int avt(user *beg)
+  {
+  int kont=0;	//переменная контроля
+  unsigned int u=0;
+  string m, p; //мэил и пароль
+  user *pU;
+  cout << "-----Авторизация-----\n";
+  cout << "Введите Email: ";
+  getline(cin, m);
+  cout << "\nВведите пароль: ";
+  cin >> p;
+  pU=beg;
+  while(pU!=NULL)
+    {
+    if(pU->avto(m, p)) 
+      {
+      kont=1;
+      cout << endl << pU->getName();
+      cout << ", добро пожаловать!\n";
+      u=pU->getId();
+      break;
+      }
+    pU=pU->next;
+    }
+  if(kont==0) cout << "\nEmail или пароль введены неверно!\n\n";
+  return u;
   }
 
 ostream &operator<<(ostream &stream, admin adm) //перегрузка оператора << класса admin
@@ -142,7 +203,7 @@ user* load(char* data, admin &adm)	//загрузка данных из файл
   ofstream fo;
   fi.open(data);
   fi >> d;
-  if(fi==NULL && d==0)
+  if(d==0)
     {
     fi.close();
     fo.open(data);
@@ -173,23 +234,176 @@ int save(char* data, user *beg , admin &adm)
   user u;
   user *pU;
   int i;
-  unsigned int d;
-  ifstream fi;
+  unsigned int d=0;
   ofstream fo;
-  fi.open(data);
-  fi >> d;
-  fi.close();
-  fo.open(data);
-  fo << d << endl;
-  fo << adm;
-  //beg->showad();
-  //(*beg).showad();
-  pU=beg;
-  while(pU!=NULL)
+  if(beg==NULL)
     {
-    (*pU).showad();
-    fo<<endl<<(*pU);
-    pU=pU->next;
+    fo.open(data);
+    fo << 0 << endl;
+    fo << adm;
+    fo.close();
     }
-  fo.close();
+  else
+    {
+    pU=beg;
+    while(pU!=NULL)
+      {
+      if(d<pU->getId()) d=pU->getId();
+      pU=pU->next;
+      }
+    fo.open(data);
+    fo << d << endl;
+    fo << adm;
+    pU=beg;
+    while(pU!=NULL)
+      {
+      fo<<endl<<(*pU);
+      pU=pU->next;
+      }
+    fo.close();
+    }
   } 
+
+void showr(user *beg, user *pU)
+  {
+  bool c = false;
+  unsigned int x1, x2, y1, y2;
+  unsigned int dx, dy; 	//расстяние между х и у
+  unsigned int dist=0;	//расстояние между точками
+  user *pUs;		//указатель на юзера для перемещения по списку
+  pUs=beg;
+  while(pUs!=NULL)
+    {
+    x1=pU->circ.getX();
+    x2=pUs->circ.getX();
+    y1=pU->circ.getY();
+    y2=pUs->circ.getY();
+    if(x1<x2) dx=x2-x1;
+    else dx=x1-x2;
+    if(y1<y2) dy=y2-y1;
+    else dy=y1-y2;
+    dist=sqrt(pow(dx,2)+pow(dy,2));
+    if(dist<=pU->circ.getRad() && pU->getId()!=pUs->getId()) 
+      {
+      c=true;
+      break;
+      }
+    pUs=pUs->next;
+    }
+  if(c)
+    {  
+    pUs=beg;
+    cout << "Список людей в вашем радиусе:\n";
+    while(pUs!=NULL)
+      {
+      x1=pU->circ.getX();
+      x2=pUs->circ.getX();
+      y1=pU->circ.getY();
+      y2=pUs->circ.getY();
+      if(x1<x2) dx=x2-x1;
+      else dx=x1-x2;
+      if(y1<y2) dy=y2-y1;
+      else dy=y1-y2;
+      dist=sqrt(pow(dx,2)+pow(dy,2));
+      if(dist<=pU->circ.getRad() && pU->getId()!=pUs->getId()) 
+        {
+        cout << "На расстоянии " << dist << " метров: ";
+        pUs->show();
+        cout << endl;
+        }
+      pUs=pUs->next;
+      }
+    }
+  else cout << "Людей в вашем радиусе нет\n";
+  }
+  
+  
+user* setting(int &c, user *beg, user *pU)
+  {
+  user *pUs;
+  string pass;
+  string tmp;
+  int i;
+  int l;
+  cout << "\n-----Настройки-----\n\n";
+  cout << "1. Изменить пароль\n2. Удалить аккаунт\n3. Выйти в меню\n";
+  while(1)
+    {
+    cin >> i;
+    if(cin.fail())
+      {
+      cout << "\nВведите число от 1 до 3!\n";
+      getline(cin, tmp);
+      cin.clear();
+      }
+    else break;
+    }
+  while(1)
+  {switch(i)
+    {
+    case 1:
+      cout << "Введите старый пароль: ";
+      cin >> pass;
+      if(pU->pass(pass))
+        {
+        cout << "Введите новый пароль: ";
+        cin >> pass;
+        pU->rePass(pass);
+        return beg;
+        }
+      else
+        {
+        cout << "Пароль введен неверно!\n1. Ввести еще раз\n2. Выйти в меню\n";
+        while(1)
+          {
+          cin >> l;
+          if(cin.fail() || l<1 || l>2)
+            {
+            cout << "\nВведите 1 или 2!\n";
+            getline(cin, tmp);
+            cin.clear();
+            }
+          else break;
+          }
+        if(l==1)
+          {
+          break;
+          }
+        else 
+          {
+          i=3;
+          break;
+          }
+        }
+    case 2:
+      if(pU==beg)
+        {
+        if(pU->next==NULL) 
+          {
+          delete beg;
+          beg=NULL;
+          }
+        else
+          {
+          beg=beg->next;
+          delete pU;
+          }
+        }
+      else
+        {
+        pUs=beg;
+        while(pUs->next!=pU)
+          {
+          pUs=pUs->next;
+          }
+        pUs->next=pUs->next->next;
+        delete pU;
+        }
+      c=1;
+      return beg;
+    case 3:
+      return beg;
+    }
+    }
+  }
+  
