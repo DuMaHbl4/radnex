@@ -42,6 +42,7 @@ class person
 class user : public person
   {
   private:
+    vector <int> hi;		//список людей отправивших "привет"
     unsigned int id;		//айди
     unsigned int idVk;		//айди вконтакте
     unsigned int idInst;	//айди инстаграмма
@@ -59,6 +60,8 @@ class user : public person
     void showad() const {shovad(); cout << id << ' ' << idVk << ' ' << idInst << ' '; circ.showcir();}  
     friend ostream &operator<<(ostream &stream, user usr);  
     friend istream &operator>>(istream &stream, user &usr);
+    void hello (const unsigned int& id) {hi.push_back(id);}
+    void clearHi () {hi.clear();}
   }; 
   
 class admin : public person

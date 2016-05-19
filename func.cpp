@@ -266,9 +266,13 @@ int save(char* data, user *beg , admin &adm)
 
 void showr(user *beg, user *pU)
   {
+  double rn;
+  int i;
+  double co; //косинус
+  double rc; //угол
   bool c = false;
   unsigned int x1, x2, y1, y2;
-  unsigned int dx, dy; 	//расстяние между х и у
+  int dx, dy; 	//расстяние между х и у
   unsigned int dist=0;	//расстояние между точками
   user *pUs;		//указатель на юзера для перемещения по списку
   pUs=beg;
@@ -300,15 +304,50 @@ void showr(user *beg, user *pU)
       x2=pUs->circ.getX();
       y1=pU->circ.getY();
       y2=pUs->circ.getY();
-      if(x1<x2) dx=x2-x1;
-      else dx=x1-x2;
-      if(y1<y2) dy=y2-y1;
-      else dy=y1-y2;
+      dx=x2-x1;
+      dy=y2-y1;
       dist=sqrt(pow(dx,2)+pow(dy,2));
+      co=(dx)/(sqrt(pow(dx,2)+pow(dy,2))); 
+      rn=180*acos(co)/3.14;
+      rc=rn;
+      if(dy<0)
+      rc=360-rn;
+      rc=rc+22.5;
+      for(i=0; i<8; i++)
+        {
+        if(rc>=i*45 && rc<=(i+1)*45) break;
+        }
       if(dist<=pU->circ.getRad() && pU->getId()!=pUs->getId()) 
         {
         cout << "На расстоянии " << dist << " метров: ";
         pUs->show();
+        switch(i)
+          {
+          case 0: 
+            cout << " На востоке";
+            break;
+          case 1:
+            cout << " На северо-востоке";
+            break;
+          case 2:
+            cout << " На севере";
+            break;
+          case 3:
+            cout << " На северо-западе";
+            break;
+          case 4:
+            cout << " На запде";
+            break;
+          case 5:
+            cout << " На юго-западе";
+            break;
+          case 6:
+            cout << " На юге";
+            break;
+          case 7:
+            cout << " На юго-востоке";
+            break;
+          }
         cout << endl;
         }
       pUs=pUs->next;
