@@ -1,4 +1,5 @@
 #include "main.h"
+#include <vector>
 #include <iostream>
 #include <cmath>
 #include <cstring>
@@ -13,7 +14,7 @@ user* reg(unsigned int &d, user *beg, char* data)	//функция регист�
   user *pUs;
   user *pU;
   string tmp;
-  string n, m, p;
+  string n, s, m, p;
   unsigned int v, i, a, b, r;
   ifstream fi;
   fi.open(data);
@@ -21,11 +22,13 @@ user* reg(unsigned int &d, user *beg, char* data)	//функция регист�
   fi.close();
   d++;
   cout << "\n-----Регистрация------\n\n";
-  cout << "Введите имя и фамилию через пробел: ";
-  getline(cin, n);
+  cout << "Введите имя: ";
+  cin >> n;
+  cout << "Фамилия: ";
+  cin >> s;
   while(1)
     {
-    cout << "Email: ";
+    cout << "\nEmail: ";
     kont=false;
     cin >> m;
     pUs=beg;
@@ -109,7 +112,8 @@ user* reg(unsigned int &d, user *beg, char* data)	//функция регист�
     else break;
     }
   circle c(a, b, r);
-  pU=new user(n, p, m, d, v, i, c);
+  pU=new user(n, s, p, m, d, v, i, c);
+  pU->showad();
   end=beg;
   if(beg!=NULL)
     while(end->next!=NULL) end=end->next;	//поиск конца списка
@@ -131,7 +135,7 @@ user* reg(unsigned int &d, user *beg, char* data)	//функция регист�
   return (beg);
   }
 
-unsigned int avt(user *beg)
+unsigned int avt(user *beg, const admin& adm)
   {
   int kont=0;	//переменная контроля
   unsigned int u=0;
@@ -142,6 +146,7 @@ unsigned int avt(user *beg)
   getline(cin, m);
   cout << "\nВведите пароль: ";
   cin >> p;
+  if(adm.avto(m, p)) return 1;
   pU=beg;
   while(pU!=NULL)
     {
@@ -173,13 +178,28 @@ istream &operator>>(istream &stream, admin &adm) //перегрузка опер
   
 ostream &operator<<(ostream &stream, user usr)	//перегрузка оператора << класса user
   {
-  stream << usr.id << ' ' << usr.idVk << ' ' << usr.idInst << ' ' << usr.circ << ' ' << usr.password << ' ' << usr.mail << ' ' << usr.name;
+  int i;
+  stream << usr.id << ' ' << usr.idVk << ' ' << usr.idInst << ' ' << usr.circ;
+  for(i=0; i < usr.hi.size(); i++)
+    {
+    stream << ' ' << usr.hi[i];
+    }
+    stream << " 0 " << usr.password << ' ' << usr.mail << ' ' << usr.name << ' ' << usr.sername;
   return stream;
   } 
  
 istream &operator>>(istream &stream, user &usr) //перегрузка оператора >> класса user
   {
-  stream >> usr.id >> usr.idVk >> usr.idInst >> usr.circ >> usr.password >> usr.mail >> usr.name;
+  unsigned int i;
+  stream >> usr.id >> usr.idVk >> usr.idInst >> usr.circ;
+  while(1)
+    {
+    stream >> i;
+    if(i!=0)
+      usr.hi.push_back(i);
+    else break;
+    }
+    stream  >> usr.password >> usr.mail >> usr.name >> usr.sername;
   return stream;
   } 
   
@@ -207,7 +227,7 @@ user* load(char* data, admin &adm)	//загрузка данных из файл
     {
     fi.close();
     fo.open(data);
-    fo << "0" << endl << adm;
+    fo << "1" << endl << adm;
     fo.close();
     }
   else
@@ -266,6 +286,9 @@ int save(char* data, user *beg , admin &adm)
 
 void showr(user *beg, user *pU)
   {
+  bool kont=false;
+  string tmp;
+  unsigned int id;
   double rn;
   int i;
   double co; //косинус
@@ -278,16 +301,16 @@ void showr(user *beg, user *pU)
   pUs=beg;
   while(pUs!=NULL)
     {
-    x1=pU->circ.getX();
+    x1=pU->circ.getX(); //считывание х и у двух точек
     x2=pUs->circ.getX();
     y1=pU->circ.getY();
     y2=pUs->circ.getY();
-    if(x1<x2) dx=x2-x1;
+    if(x1<x2) dx=x2-x1;  //поиск коордиат вектора 
     else dx=x1-x2;
     if(y1<y2) dy=y2-y1;
     else dy=y1-y2;
-    dist=sqrt(pow(dx,2)+pow(dy,2));
-    if(dist<=pU->circ.getRad() && pU->getId()!=pUs->getId()) 
+    dist=sqrt(pow(dx,2)+pow(dy,2)); //расстояние мужду точками
+    if(dist<=pU->circ.getRad() && pU->getId()!=pUs->getId()) //если радиус пользователя больше чем расстояние до человека то выводим на экран
       {
       c=true;
       break;
@@ -321,6 +344,7 @@ void showr(user *beg, user *pU)
         {
         cout << "На расстоянии " << dist << " метров: ";
         pUs->show();
+        cout << " Id: " << pUs->getId();
         switch(i)
           {
           case 0: 
@@ -351,6 +375,40 @@ void showr(user *beg, user *pU)
         cout << endl;
         }
       pUs=pUs->next;
+      }
+    cout << "\nВведите id человека, которому хотите передать привет, введите 0 чтобы выйти в меню\n";
+    while(1)
+      {
+      cin >> id;
+      if(cin.fail())
+        {
+        cout << "\nВведите число больше нуля!\n";
+        cin.clear();
+        getline(cin, tmp);
+        }
+      else break;
+      }
+    if(id==0) ;
+    else
+      {
+      if(id==pU->getId())
+        {
+        cout << "Можете сказать себе: " << "привет\n";
+        }
+      pUs=beg;
+      while(pUs!=NULL)
+        {
+        if(id==pUs->getId()) 
+          {
+          pUs->hello(pU->getId());
+          cout << pU->getId();
+          kont=true;
+          cout << "Привет отправлен\n";
+          break;
+          }
+        pUs=pUs->next;
+        }
+      if(!kont) cout << "Человека с таким Id еще нет\n";
       }
     }
   else cout << "Людей в вашем радиусе нет\n";
@@ -446,3 +504,26 @@ user* setting(int &c, user *beg, user *pU)
     }
   }
   
+void hello(user *beg, user *pU)
+  {
+  unsigned int l;
+  user *pUs;
+  if(pU->hi.size()>0)
+    {
+    cout << "Вам передают привет: ";
+    for(l=0; l<pU->hi.size(); l++)
+      {
+      pUs=beg;
+      while(pUs!=NULL)
+        {
+        if(pUs->getId()==pU->hi[l])
+          {
+          if(l>0) cout << ", ";
+          pUs->show();
+          }
+        pUs=pUs->next;
+        }
+      }
+    cout << "\n\n";
+    }                                                                                                                                                                                                                                                                              
+  }

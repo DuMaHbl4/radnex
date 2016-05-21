@@ -58,7 +58,7 @@ int menu(char* data)
                 beg=reg(u, beg, data);	//функция регистрации
                 break;
               case 2:
-                u=avt(beg); 	//функция авторизации
+                u=avt(beg, adm); 	//функция авторизации
                 break;
               case 3:
                 c=4;
@@ -69,21 +69,32 @@ int menu(char* data)
             if(c==4) break;
             if(u!=0)
               {
-              pU=beg;
-              while(pU!=NULL)	//выбор указателя на авторизовавшегося пользователя
+              if(u==1)	//если авторизовался админ, то переходим в меню админа
                 {
-                if(u==pU->getId()) break;
-                pU=pU->next;
+                c=3;
+                break;
                 }
-              c=2;
-              break;
+              else
+                {
+                pU=beg;
+                while(pU!=NULL)	//выбор указателя на авторизовавшегося пользователя
+                  {
+                  if(u==pU->getId()) break;
+                  pU=pU->next;
+                  }
+                c=2;
+                break;
+                }
               } 
             } 
             break;
         case 2:
           while(1)
             {
-            cout<<"\n-----Главное меню-----\n\n1. Изменить местоположение\n2. Изменить радиус\n3. Показать списсок людей рядом\n4. Найстройки аккаунта\n5. Выйти из аккаунта\n6. Выйти из программы\n";
+            cout<<"\n-----Главное меню-----\n\n";
+            hello(beg, pU);
+            pU->clearHi();
+            cout << "1. Изменить местоположение\n2. Изменить радиус\n3. Показать списсок людей рядом\n4. Найстройки аккаунта\n5. Выйти из аккаунта\n6. Выйти из программы\n";
             while(1)
               {
               cin>>i;
@@ -172,10 +183,59 @@ int menu(char* data)
               }
             if(c!=2) break;
             }
-          break;  
+          break; 
+        case 3:
+          while (1)
+            {
+            cout<<"\n-----Меню админа-----\n\n";
+            cout<<"1. Поиск пользователя по id\n2. Удаление пользователя по id\n3. Просмотр всех пользователей\n4. Выйти из аккаунта админа\n5. Выйти из прогаммы"<<endl;
+            while(1)
+              {
+              cin>>i;
+              if(cin.fail())
+                {
+                cin.clear();
+                getline(cin, tmp);
+                cout << "\nВведите одну из цифр от 1 до 6!\n";
+                }
+              else break;
+              }
+            switch (i)
+              {
+              case 1:
+                poisk(beg);
+                break;
+              /*case 2:
+                udalenie(beg);
+                break;*/
+              case 3:
+                pokas(beg);
+                break;
+              case 4:
+                save(data, beg, adm);
+                pU=beg;
+                while(pU!=NULL)
+                  {
+                  pUs=pU;
+                  delete pU;
+                  pU=pUs->next;
+                  }
+                beg=NULL;
+                u=0;
+                c=1;
+                break;
+              case 5:
+                c=4;
+                break;
+              default: cout<<"\nВведите одну из цифр от 1 до 5!\n";	
+              }
+            if(c!=3) break;
+          }
+          break;
         case 4:
           save(data, beg, adm);
           return 0;
         }
-      }
+    }
   }
+

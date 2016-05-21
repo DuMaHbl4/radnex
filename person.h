@@ -1,3 +1,4 @@
+#include <vector>
 #include <iostream>
 using namespace std;
 
@@ -24,17 +25,19 @@ class person
   {
   protected:		
     string name;		//имя
+    string sername;		//фамилия
     string password;  		//пароль
     string mail;		//почта 
   public:
-    person() {name="0"; password="0"; mail="0";}
-    person(string n, string p, string m) {name=n; password=p; mail=m;}
+    person() {name="0"; sername="0"; password="0"; mail="0";}
+    person(string n, string s, string p, string m) {name=n; sername=s; password=p; mail=m;}
     void rePass(string newP) {password=newP; cout <<"new password +";}	//изменение пароля
-    void login(string n, string p);	//вход
+    //void login(string n, string p);	//вход
+    string getSername() const {return sername;}
     string getName() const {return name;}
     string getMail() const {return mail;}
     void shov() const {cout << name;}
-    void shovad() const {cout << name << ' ' << password << ' ' << mail << ' ';}
+    void shovad() const {cout << "Имя: " << name << " Фамилия: " << sername << " Email: " << mail;}
     bool avto(string e, string p) const {if(mail==e && password==p) return true; else return false;}	//проверка при на имя и пароль
     bool pass(string p) const {if(p==password) return true; else return false;}	//проверка на правильность пароля
     };
@@ -42,7 +45,6 @@ class person
 class user : public person
   {
   private:
-    vector <int> hi;		//список людей отправивших "привет"
     unsigned int id;		//айди
     unsigned int idVk;		//айди вконтакте
     unsigned int idInst;	//айди инстаграмма
@@ -50,24 +52,24 @@ class user : public person
     circle circ;		//окружность с центром в местоположении пользователя, с радиусом ,в котором он желает видеть людей
     user *next;
     user() {id=0; idVk=0; idInst=0; next=NULL;}
-    user(string n, string p, string m, unsigned int d, unsigned int v, unsigned int i, circle c):person(n, p, m) {id=d; idVk=v; idInst=i; circ=c; next=NULL;}
-    void hello() const;		//функция привет
+    user(string n, string s, string p, string m, unsigned int d, unsigned int v, unsigned int i, circle c):person(n, s, p, m) {id=d; idVk=v; idInst=i; circ=c; next=NULL;}
     void vk() const;		//написать сообщение вк
     void inst() const;		//просмотр инстаграм пользователя
     void twit() const;		//просмотр твиттера пользователя 
     unsigned int getId() const {return id;}
     void show() const {shov();}
-    void showad() const {shovad(); cout << id << ' ' << idVk << ' ' << idInst << ' '; circ.showcir();}  
+    void showad() const {shovad(); cout << " Id: " << id << " Id Вконтакте: " << idVk << " Instagram: " << idInst << endl;}  
     friend ostream &operator<<(ostream &stream, user usr);  
     friend istream &operator>>(istream &stream, user &usr);
-    void hello (const unsigned int& id) {hi.push_back(id);}
+    vector <unsigned int> hi;	//список людей отправивших "привет"
+    void hello (const unsigned int& id) {hi.push_back(id);} //привет
     void clearHi () {hi.clear();}
   }; 
   
 class admin : public person
   {
   public:
-    admin(): person ("admin", "password", "adm@radnex.com"){}; 
+    admin(): person ("admin", "админ", "password", "adm@radnex.com"){}; 
     friend ostream &operator<<(ostream &stream, admin adm);
     friend istream &operator>>(istream &stream, admin &adm);   
   };
