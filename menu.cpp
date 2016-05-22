@@ -188,7 +188,7 @@ int menu(char* data)
           while (1)
             {
             cout<<"\n-----Меню админа-----\n\n";
-            cout<<"1. Поиск пользователя по id\n2. Удаление пользователя по id\n3. Просмотр всех пользователей\n4. Выйти из аккаунта админа\n5. Выйти из прогаммы"<<endl;
+            cout<<"1. Поиск пользователя по id\n2. Удаление пользователя по id\n3. Просмотр всех пользователей\n4. Изменить пароль\n5. Выйти из аккаунта админа\n6. Выйти из прогаммы"<<endl;
             while(1)
               {
               cin>>i;
@@ -205,13 +205,16 @@ int menu(char* data)
               case 1:
                 poisk(beg);
                 break;
-              /*case 2:
-                udalenie(beg);
-                break;*/
+              case 2:
+                beg=delet(beg);
+                break;
               case 3:
                 pokas(beg);
                 break;
               case 4:
+                repass(adm);
+                break;
+              case 5:
                 save(data, beg, adm);
                 pU=beg;
                 while(pU!=NULL)
@@ -224,7 +227,7 @@ int menu(char* data)
                 u=0;
                 c=1;
                 break;
-              case 5:
+              case 6:
                 c=4;
                 break;
               default: cout<<"\nВведите одну из цифр от 1 до 5!\n";	

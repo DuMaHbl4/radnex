@@ -9,4 +9,6 @@ void showr(user *beg, user *pU);
 user* setting(int &c, user *beg, user *pU);
 void poisk(user *beg);
 void pokas(user *beg);
+user* delet(user *beg);
+void repass(admin &adm);
 void hello(user *beg, user *pU);
