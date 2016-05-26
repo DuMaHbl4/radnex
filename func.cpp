@@ -288,25 +288,28 @@ int save(char* data, user *beg , admin &adm)
 @param x2 - параметр, отвечающий за координату Х точки конца вектора
 @param y2 - параметр, отвечающий за координату У точки конца вектора
 @param rad - параметр, отвечающий за радиус, в котром пользователь хочет видеть дюдей*/
-bool vect(const unsigned int& x1, const unsigned int& y1, const unsigned int x2, const unsigned int& y2, const unsigned int& rad)
+bool vect(const unsigned int& x1, const unsigned int& y1, const unsigned int& x2, const unsigned int& y2, const unsigned int& rad)
   {
+  cout << x1 << "," << y1 << ' ' << x2 << "," << y2 << ' ';
   bool c=false;
   int dx, dy;
   unsigned int dist;
   double co, rn, rc;
   int i;
-  dx=x2-x1;
-  dy=y2-y1;
-  dist=sqrt(pow(dx,2)+pow(dy,2));
-  co=(dx)/(sqrt(pow(dx,2)+pow(dy,2))); 
-  rn=180*acos(co)/3.14;
+  dx=x2-x1; //разница между координатами х
+  dy=y2-y1; //между координатами у
+  cout << pow(dx,2) << ' ';
+  cout << pow(dy, 2)<< ' ';
+  dist=sqrt(pow(dx,2)+pow(dy,2)); //расстояние между двумя точками(длина вектора)
+  co=(dx)/(sqrt(pow(dx,2)+pow(dy,2))); //косинус угла между осью оХ и вектором
+  rn=180*acos(co)/3.14; //перевод из радиан в градусы, для удобства 
   rc=rn;
-  if(dy<0)
+  if(dy<0) //если вектор лежит ниже ох переворачиваем его
   rc=360-rn;
-  rc=rc+22.5;
-  for(i=0; i<8; i++)
+  rc=rc+22.5; //поворот осей координат для удобного поиска направления
+  for(i=0; i<8; i++) //градусы делятся на 8 частей соответственно на восток, западо-восток итд
     {
-    if(rc>=i*45 && rc<=(i+1)*45) break;
+    if(rc>=i*45 && rc<=(i+1)*45) break; //проверяем лежит ли угол в какой либо восьмой части и выбираем нужный номер части i
     }
   if(dist<=rad) 
     {
@@ -355,7 +358,7 @@ void showr(user *beg, user *pU)
     {
     if(pU!=pUs)
       {
-      if(vect(pU->circ.getX(), pU->circ.getX(), pUs->circ.getY(), pUs->circ.getY(), pU->circ.getRad()))
+      if(vect(pU->circ.getX(), pU->circ.getY(), pUs->circ.getX(), pUs->circ.getY(), pU->circ.getRad()))
         {
         cout << ' ';
         pUs->show();

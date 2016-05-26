@@ -19,4 +19,4 @@ void hello(user *beg, user *pU);
 @param x2 - параметр, отвечающий за координату Х точки конца вектора
 @param y2 - параметр, отвечающий за координату У точки конца вектора
 @param rad - параметр, отвечающий за радиус, в котром пользователь хочет видеть дюдей*/
-bool vect(const unsigned int& x1, const unsigned int& y1, const unsigned int x2, const unsigned int& y2, const unsigned int& rad);
+bool vect(const unsigned int& x1, const unsigned int& y1, const unsigned int& x2, const unsigned int& y2, const unsigned int& rad);
