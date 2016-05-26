@@ -1,75 +1,130 @@
 #include <vector>
 #include <iostream>
 using namespace std;
-
-class circle
+///@class circle
+class circle///класс содержит информацию об окружности и методы, позволяющие изменять ее параметры
   {
   private:
-    unsigned int x;		//координаты
+    ///координата центра окружности Х
+    unsigned int x;
+    ///координата центра окружности У		
     unsigned int y;
-    unsigned int rad;		//радиус окружности
+    ///радиус окружности
+    unsigned int rad;		
   public:
-    circle() {x=0; y=0; rad=0;}
-    circle(unsigned int h, unsigned int i, unsigned int r) {x=h; y=i; rad=r;}
-    unsigned int getX() const {return x;}	//возврат координат
+    ///конструктор по умолчанию
+    circle() {x=0; y=0; rad=0;} 
+    ///конструктор с параметрами
+    ///@param вся информация об окружности
+    circle(unsigned int h, unsigned int i, unsigned int r) {x=h; y=i; rad=r;} 
+    ///@return х - координату по Х центра окружности
+    unsigned int getX() const {return x;}	
+    ///@return y - координату по у центра окружности
     unsigned int getY() const {return y;}
-    unsigned int getRad() const {return rad;}	//возврат радиуса
-    void reRad(unsigned int r) {rad=r;}		//изменение радиуса
-    void reCoord(unsigned int h, unsigned int i) {x=h; y=i;}	//изменение координат
-    void showcir() const {cout << x << ' ' << y << ' ' << rad << ' ';}
+    ///@return rad - радиус
+    unsigned int getRad() const {return rad;}
+    ///изменение радиуса
+    ///@param r - радиус	
+    void reRad(unsigned int r) {rad=r;}	
+    ///изменение координат
+    ///@param h - x
+    ///@param i - y	
+    void reCoord(unsigned int h, unsigned int i) {x=h; y=i;}
+    ///вывод всей информации об окружности на экран	
+    void showcir() const {cout << x << ' ' << y << ' ' << rad << ' ';} 
+    ///перегруженый оператор <<
     friend ostream &operator<<(ostream &stream, circle cir);
-    friend istream &operator>>(istream &stream, circle &cir);
+    ///перегруженый оператор >>	
+    friend istream &operator>>(istream &stream, circle &cir);	
   };
-  
-class person
+///@class person  
+class person ///базовый класс, содержит в себе общую информацию классов наследников(админ и пользователь). Не используется в программе напрямую 
   {
-  protected:		
-    string name;		//имя
-    string sername;		//фамилия
-    string password;  		//пароль
-    string mail;		//почта 
+  protected:
+    ///имя 		
+    string name;		
+    ///фамилия
+    string sername;		
+    ///пароль
+    string password;  		
+    ///почта
+    string mail;	
   public:
+    ///конструктор по умолчанию
     person() {name="0"; sername="0"; password="0"; mail="0";}
+    ///конструктор
+    ///@param все параметры человека 
     person(string n, string s, string p, string m) {name=n; sername=s; password=p; mail=m;}
-    void rePass(string newP) {password=newP; cout <<"new password +";}	//изменение пароля
-    //void login(string n, string p);	//вход
+    ///изменение пароль
+    ///@param новый пароль
+    void rePass(string newP) {password=newP;}
+    ///@return sername - фамилию
     string getSername() const {return sername;}
+    ///@return name - имя 
     string getName() const {return name;}
+    ///@return mail - почту
     string getMail() const {return mail;}
-    void shov() const {cout << name;}
+    ///вывод на экран имени и фамилии
+    void shov() const {cout << name << ' ' << sername << ' ';}
+    ///расширеный вывод информации  на экран
     void shovad() const {cout << "Имя: " << name << " Фамилия: " << sername << " Email: " << mail;}
-    bool avto(string e, string p) const {if(mail==e && password==p) return true; else return false;}	//проверка при на имя и пароль
-    bool pass(string p) const {if(p==password) return true; else return false;}	//проверка на правильность пароля
+    ///проверка на правильность введеных данных(имя, пароль)
+    ///@param e - почта
+    ///@param p - пароль
+    ///@return true если данные совпадают, false если не совпадают
+    bool avto(string e, string p) const {if(mail==e && password==p) return true; else return false;}
+    ///проверка на правильность введеного пароля
+    ///@param p - пароль
+    ///@return true если пароль совпал, false если не совпал
+    bool pass(string p) const {if(p==password) return true; else return false;}
     };
-  
-class user : public person
+///@class user
+class user : public person ///класс "Пользователь" содержит в себе всю необходимую информацию о пользователе
   {
   private:
-    unsigned int id;		//айди
-    unsigned int idVk;		//айди вконтакте
-    unsigned int idInst;	//айди инстаграмма
+    ///id в программе
+    unsigned int id;
+    ///id Вконтакте
+    unsigned int idVk;
+    ///id в инстаграмме
+    unsigned int idInst;
   public:
-    circle circ;		//окружность с центром в местоположении пользователя, с радиусом ,в котором он желает видеть людей
+    circle circ;		///<окружность с центром в местоположении пользователя, с радиусом ,в котором он желает видеть людей
+    ///указатель на следующего пользователя
     user *next;
+    ///конструктор по умолчанию
     user() {id=0; idVk=0; idInst=0; next=NULL;}
+    ///конструктор с параметрами
+    ///@param все параметры пользователя
     user(string n, string s, string p, string m, unsigned int d, unsigned int v, unsigned int i, circle c):person(n, s, p, m) {id=d; idVk=v; idInst=i; circ=c; next=NULL;}
-    void vk() const;		//написать сообщение вк
-    void inst() const;		//просмотр инстаграм пользователя
-    void twit() const;		//просмотр твиттера пользователя 
+    /*void vk() const;		//написать сообщение вк
+    void inst() const;		//просмотр инстаграм пользователя*/
+    ///@return id - id пользователя 
     unsigned int getId() const {return id;}
-    void show() const {shov();}
-    void showad() const {shovad(); cout << " Id: " << id << " Id Вконтакте: " << idVk << " Instagram: " << idInst << endl;}  
-    friend ostream &operator<<(ostream &stream, user usr);  
+    ///вывод самой важной информации о пользователе
+    void show() const {shov(); cout << "id: " << id;}
+    ///расширеный вывод информации на экран
+    void showad() const {shovad(); cout << " Id: " << id << " Id Вконтакте: " << idVk << " Instagram: " << idInst << endl;}
+    ///перегруженый оператор >>  
+    friend ostream &operator<<(ostream &stream, user usr);
+    ///перегруженый оператор <<   
     friend istream &operator>>(istream &stream, user &usr);
-    vector <unsigned int> hi;	//список людей отправивших "привет"
-    void hello (const unsigned int& id) {hi.push_back(id);} //привет
+    vector <unsigned int> hi;	///<список людей отправивших "привет"
+    ///получение привета от пользователя. функция добавляет в вектор id пользователя, отправившего "привет"
+    ///@param id - id пользователя, отправившего "привет"
+    void hello (const unsigned int& id) {hi.push_back(id);}
+    ///очиста вектора людей, отправивших привет
     void clearHi () {hi.clear();}
   }; 
-  
-class admin : public person
+
+///@class admin
+class admin : public person ///rласс "админ", отвечает за управление программой
   {
   public:
-    admin(): person ("admin", "админ", "password", "adm@radnex.com"){}; 
+    ///конструктор по умолчанию
+    admin(): person ("admin", "админ", "password", "adm@radnex.com"){};
+    ///перегруженй оператор << 
     friend ostream &operator<<(ostream &stream, admin adm);
+    ///перегруженый оператор >>
     friend istream &operator>>(istream &stream, admin &adm);   
   };

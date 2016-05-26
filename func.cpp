@@ -124,9 +124,6 @@ user* reg(unsigned int &d, user *beg, char* data)	//функция регист�
   else end->next=pU;
   end=pU;
   end->next=NULL;
-  //pUs->next=NULL;
-  //if(beg==NULL) beg=pU;
-  //beg->showad();
   pU=beg;
   while(pU!=NULL)
     {
@@ -284,98 +281,92 @@ int save(char* data, user *beg , admin &adm)
     }
   } 
 
+/**@function
+Функция показа информации о векторе в удобном для пользователя виде. Выводит на экран расстояние между точками и направление от первой точки ко второй, если расстояние между точками меньше чем радиус, в котором пользователь желает видеть людей. Имеет пять входных параметров.
+@param x1 - параметр, отвечающий за координату Х точки начала вектора
+@param y1 - параметр, отвечающий за координату У точки начала вектора
+@param x2 - параметр, отвечающий за координату Х точки конца вектора
+@param y2 - параметр, отвечающий за координату У точки конца вектора
+@param rad - параметр, отвечающий за радиус, в котром пользователь хочет видеть дюдей*/
+bool vect(const unsigned int& x1, const unsigned int& y1, const unsigned int x2, const unsigned int& y2, const unsigned int& rad)
+  {
+  bool c=false;
+  int dx, dy;
+  unsigned int dist;
+  double co, rn, rc;
+  int i;
+  dx=x2-x1;
+  dy=y2-y1;
+  dist=sqrt(pow(dx,2)+pow(dy,2));
+  co=(dx)/(sqrt(pow(dx,2)+pow(dy,2))); 
+  rn=180*acos(co)/3.14;
+  rc=rn;
+  if(dy<0)
+  rc=360-rn;
+  rc=rc+22.5;
+  for(i=0; i<8; i++)
+    {
+    if(rc>=i*45 && rc<=(i+1)*45) break;
+    }
+  if(dist<=rad) 
+    {
+    c=true;
+    cout << "На расстоянии " << dist << " метров.";
+    switch(i)
+      {
+      case 0: 
+        cout << " На востоке";
+        break;
+      case 1:
+        cout << " На северо-востоке";
+        break;
+      case 2:
+        cout << " На севере";
+        break;
+      case 3:
+        cout << " На северо-западе";
+        break;
+      case 4:
+        cout << " На запде";
+        break;
+      case 5:
+        cout << " На юго-западе";
+        break;
+      case 6:
+        cout << " На юге";
+        break;
+      case 7:
+        cout << " На юго-востоке";
+        break;
+      }
+    }
+  return c;
+  }
+      
 void showr(user *beg, user *pU)
   {
   bool kont=false;
   string tmp;
   unsigned int id;
-  double rn;
-  int i;
-  double co; //косинус
-  double rc; //угол
-  bool c = false;
-  unsigned int x1, x2, y1, y2;
-  int dx, dy; 	//расстяние между х и у
-  unsigned int dist=0;	//расстояние между точками
-  user *pUs;		//указатель на юзера для перемещения по списку
+  user *pUs;		//указатель на юзера для перемещения по списку  
   pUs=beg;
+  cout << "Список людей в вашем радиусе:\n";
   while(pUs!=NULL)
     {
-    x1=pU->circ.getX(); //считывание х и у двух точек
-    x2=pUs->circ.getX();
-    y1=pU->circ.getY();
-    y2=pUs->circ.getY();
-    if(x1<x2) dx=x2-x1;  //поиск коордиат вектора 
-    else dx=x1-x2;
-    if(y1<y2) dy=y2-y1;
-    else dy=y1-y2;
-    dist=sqrt(pow(dx,2)+pow(dy,2)); //расстояние мужду точками
-    if(dist<=pU->circ.getRad() && pU->getId()!=pUs->getId()) //если радиус пользователя больше чем расстояние до человека то выводим на экран
+    if(pU!=pUs)
       {
-      c=true;
-      break;
-      }
-    pUs=pUs->next;
-    }
-  if(c)
-    {  
-    pUs=beg;
-    cout << "Список людей в вашем радиусе:\n";
-    while(pUs!=NULL)
-      {
-      x1=pU->circ.getX();
-      x2=pUs->circ.getX();
-      y1=pU->circ.getY();
-      y2=pUs->circ.getY();
-      dx=x2-x1;
-      dy=y2-y1;
-      dist=sqrt(pow(dx,2)+pow(dy,2));
-      co=(dx)/(sqrt(pow(dx,2)+pow(dy,2))); 
-      rn=180*acos(co)/3.14;
-      rc=rn;
-      if(dy<0)
-      rc=360-rn;
-      rc=rc+22.5;
-      for(i=0; i<8; i++)
+      if(vect(pU->circ.getX(), pU->circ.getX(), pUs->circ.getY(), pUs->circ.getY(), pU->circ.getRad()))
         {
-        if(rc>=i*45 && rc<=(i+1)*45) break;
-        }
-      if(dist<=pU->circ.getRad() && pU->getId()!=pUs->getId()) 
-        {
-        cout << "На расстоянии " << dist << " метров: ";
+        cout << ' ';
         pUs->show();
-        cout << " Id: " << pUs->getId();
-        switch(i)
-          {
-          case 0: 
-            cout << " На востоке";
-            break;
-          case 1:
-            cout << " На северо-востоке";
-            break;
-          case 2:
-            cout << " На севере";
-            break;
-          case 3:
-            cout << " На северо-западе";
-            break;
-          case 4:
-            cout << " На запде";
-            break;
-          case 5:
-            cout << " На юго-западе";
-            break;
-          case 6:
-            cout << " На юге";
-            break;
-          case 7:
-            cout << " На юго-востоке";
-            break;
-          }
         cout << endl;
+        kont=true;
         }
-      pUs=pUs->next;
       }
+      pUs=pUs->next;
+    }
+  if(kont)
+    {
     cout << "\nВведите id человека, которому хотите передать привет, введите 0 чтобы выйти в меню\n";
     while(1)
       {
@@ -411,9 +402,8 @@ void showr(user *beg, user *pU)
       if(!kont) cout << "Человека с таким Id еще нет\n";
       }
     }
-  else cout << "Людей в вашем радиусе нет\n";
+  else  cout << "пуст\n";
   }
-  
   
 user* setting(int &c, user *beg, user *pU)
   {
@@ -446,6 +436,7 @@ user* setting(int &c, user *beg, user *pU)
         cout << "Введите новый пароль: ";
         cin >> pass;
         pU->rePass(pass);
+        cout << "Пароль изменен\n";
         return beg;
         }
       else
@@ -510,7 +501,7 @@ void hello(user *beg, user *pU)
   user *pUs;
   if(pU->hi.size()>0)
     {
-    cout << "Вам передают привет: ";
+    cout << "Вам передают привет:\n";
     for(l=0; l<pU->hi.size(); l++)
       {
       pUs=beg;
@@ -518,8 +509,9 @@ void hello(user *beg, user *pU)
         {
         if(pUs->getId()==pU->hi[l])
           {
-          if(l>0) cout << ", ";
           pUs->show();
+          cout << ". ";
+          vect(pU->circ.getX(), pU->circ.getY(), pUs->circ.getX(), pUs->circ.getY(), pU->circ.getRad());
           }
         pUs=pUs->next;
         }
