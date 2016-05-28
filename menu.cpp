@@ -4,6 +4,8 @@
 //#include "person.h"
 using namespace std;
 
+/**меню
+@param data - имя файла со всей информацией о пользователях*/
 int menu(char* data)
   {
   unsigned int id;

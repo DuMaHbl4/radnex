@@ -105,9 +105,9 @@ class user : public person ///класс "Пользователь" содерж
     void show() const {shov(); cout << "id: " << id;}
     ///расширеный вывод информации на экран
     void showad() const {shovad(); cout << " Id: " << id << " Id Вконтакте: " << idVk << " Instagram: " << idInst << endl;}
-    ///перегруженый оператор >>  
+    ///перегруженый оператор <<  
     friend ostream &operator<<(ostream &stream, user usr);
-    ///перегруженый оператор <<   
+    ///перегруженый оператор >>   
     friend istream &operator>>(istream &stream, user &usr);
     vector <unsigned int> hi;	///<список людей отправивших "привет"
     ///получение привета от пользователя. функция добавляет в вектор id пользователя, отправившего "привет"
@@ -115,10 +115,13 @@ class user : public person ///класс "Пользователь" содерж
     void hello (const unsigned int& id) {hi.push_back(id);}
     ///очиста вектора людей, отправивших привет
     void clearHi () {hi.clear();}
+    /*vector <unsigned int> frnd;
+    void addFrnd (const unsigned int& idVk) {frnd.push_back(idVk);}
+    void deleteFrnd (const unsigned int& idVk) {}*/
   }; 
 
 ///@class admin
-class admin : public person ///rласс "админ", отвечает за управление программой
+class admin : public person ///класс "админ", пользователь, вошедший от его имени, имеет возможность просматривать информацию и удалить аккаунт любого пользователя каждом пользовател  
   {
   public:
     ///конструктор по умолчанию
