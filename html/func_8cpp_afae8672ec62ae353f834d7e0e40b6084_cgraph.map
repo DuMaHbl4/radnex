@@ -1,0 +1,9 @@
+<map id="showr" name="showr">
+<area shape="rect" id="node2" href="$func_8cpp.html#ade050d1ceaa47cd21a06b898e5c89cf1" title="vect" alt="" coords="141,5,187,32"/>
+<area shape="rect" id="node3" href="$classcircle.html#acb03d8b165cd8119e0db27e3d1f25973" title="circle::getX" alt="" coords="120,56,208,83"/>
+<area shape="rect" id="node4" href="$classcircle.html#ac9a1cb1a59361d4c8aa2cfe97be9cd6b" title="circle::getY" alt="" coords="120,107,208,133"/>
+<area shape="rect" id="node5" href="$classcircle.html#a86f4fa52100c12e29c81a0d4cebcf47d" title="circle::getRad" alt="" coords="113,157,215,184"/>
+<area shape="rect" id="node6" href="$classuser.html#a94f7a39e4562af925d339fb62dcf6b51" title="вывод самой важной информации о пользователе " alt="" coords="121,208,207,235"/>
+<area shape="rect" id="node7" href="$classuser.html#ac5da3a95d4b0afc2b4a3f007138665ba" title="user::getId" alt="" coords="122,259,206,285"/>
+<area shape="rect" id="node8" href="$classuser.html#a6cf4003d298be5ecb383242f4639bdb9" title="user::hello" alt="" coords="123,309,205,336"/>
+</map>

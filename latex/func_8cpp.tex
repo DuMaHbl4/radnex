@@ -1,0 +1,402 @@
+\hypertarget{func_8cpp}{\section{Файл func.\-cpp}
+\label{func_8cpp}\index{func.\-cpp@{func.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}main.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$cmath$>$}\\*
+{\ttfamily \#include $<$cstring$>$}\\*
+{\ttfamily \#include $<$fstream$>$}\\*
+Граф включаемых заголовочных файлов для func.\-cpp\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{func_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classuser}{user} $\ast$ \hyperlink{func_8cpp_a56309ab6c886ab5808deb57ee782027a}{reg} (unsigned int \&d, \hyperlink{classuser}{user} $\ast$beg, char $\ast$data)
+\item 
+unsigned int \hyperlink{func_8cpp_a1caa495e38a523923f4a1ddd6e9dbecc}{avt} (\hyperlink{classuser}{user} $\ast$beg, const \hyperlink{classadmin}{admin} \&adm)
+\item 
+ostream \& \hyperlink{func_8cpp_ab34a42c23773278dbc4bc8802b70273d}{operator$<$$<$} (ostream \&stream, \hyperlink{classadmin}{admin} adm)
+\item 
+istream \& \hyperlink{func_8cpp_a68af78ea701a4eae11203e7defdc7e59}{operator$>$$>$} (istream \&stream, \hyperlink{classadmin}{admin} \&adm)
+\item 
+ostream \& \hyperlink{func_8cpp_a8dd9a408d4bec3c2e2fa99d861c3a551}{operator$<$$<$} (ostream \&stream, \hyperlink{classuser}{user} usr)
+\item 
+istream \& \hyperlink{func_8cpp_a7fd4b22d0a1c241217d6d30c0af07078}{operator$>$$>$} (istream \&stream, \hyperlink{classuser}{user} \&usr)
+\item 
+ostream \& \hyperlink{func_8cpp_a32141087fecfdc440a1e3c16e3363dfb}{operator$<$$<$} (ostream \&stream, \hyperlink{classcircle}{circle} cir)
+\item 
+istream \& \hyperlink{func_8cpp_a029cd4589dbaa21d0ff2463e3a7aab52}{operator$>$$>$} (istream \&stream, \hyperlink{classcircle}{circle} \&cir)
+\item 
+\hyperlink{classuser}{user} $\ast$ \hyperlink{func_8cpp_ad2b7a2174e529e85e69cf24837c42bd3}{load} (char $\ast$data, \hyperlink{classadmin}{admin} \&adm)
+\item 
+int \hyperlink{func_8cpp_a358800d72f371bf7ef84d0d6b3873e43}{save} (char $\ast$data, \hyperlink{classuser}{user} $\ast$beg, \hyperlink{classadmin}{admin} \&adm)
+\item 
+bool \hyperlink{func_8cpp_ade050d1ceaa47cd21a06b898e5c89cf1}{vect} (const unsigned int \&x1, const unsigned int \&y1, const unsigned int \&x2, const unsigned int \&y2, const unsigned int \&rad)
+\item 
+void \hyperlink{func_8cpp_afae8672ec62ae353f834d7e0e40b6084}{showr} (\hyperlink{classuser}{user} $\ast$beg, \hyperlink{classuser}{user} $\ast$p\-U)
+\item 
+\hyperlink{classuser}{user} $\ast$ \hyperlink{func_8cpp_a598b17494793268fcb7d4917d3179ee2}{setting} (int \&c, \hyperlink{classuser}{user} $\ast$beg, \hyperlink{classuser}{user} $\ast$p\-U)
+\item 
+void \hyperlink{func_8cpp_ae49e4f4b5d423f5739a1cf8ea5f41f24}{hello} (\hyperlink{classuser}{user} $\ast$beg, \hyperlink{classuser}{user} $\ast$p\-U)
+\end{DoxyCompactItemize}
+
+
+\subsection{Функции}
+\hypertarget{func_8cpp_a1caa495e38a523923f4a1ddd6e9dbecc}{\index{func.\-cpp@{func.\-cpp}!avt@{avt}}
+\index{avt@{avt}!func.cpp@{func.\-cpp}}
+\subsubsection[{avt}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int avt (
+\begin{DoxyParamCaption}
+\item[{{\bf user} $\ast$}]{beg, }
+\item[{const {\bf admin} \&}]{adm}
+\end{DoxyParamCaption}
+)}}\label{func_8cpp_a1caa495e38a523923f4a1ddd6e9dbecc}
+функция авторизации. в зависимости от введеных почты и пароля программа может запросить ввести данные повторно, либо перейти в меню обычного пользователя, либо перейти в меню \char`\"{}адимина\char`\"{} 
+\begin{DoxyParams}{Аргументы}
+{\em beg} & -\/ указатель на начало списка \\
+\hline
+{\em adm} & -\/ объект класса \char`\"{}админ\char`\"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+id, авторизовавшегося пользователя 
+\end{DoxyReturn}
+
+
+Граф вызовов\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{func_8cpp_a1caa495e38a523923f4a1ddd6e9dbecc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{func_8cpp_a1caa495e38a523923f4a1ddd6e9dbecc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{func_8cpp_ae49e4f4b5d423f5739a1cf8ea5f41f24}{\index{func.\-cpp@{func.\-cpp}!hello@{hello}}
+\index{hello@{hello}!func.cpp@{func.\-cpp}}
+\subsubsection[{hello}]{\setlength{\rightskip}{0pt plus 5cm}void hello (
+\begin{DoxyParamCaption}
+\item[{{\bf user} $\ast$}]{beg, }
+\item[{{\bf user} $\ast$}]{p\-U}
+\end{DoxyParamCaption}
+)}}\label{func_8cpp_ae49e4f4b5d423f5739a1cf8ea5f41f24}
+функция \char`\"{}привет\char`\"{} выводит на экран пользователя список людей, отправивших ему привет 
+\begin{DoxyParams}{Аргументы}
+{\em beg} & -\/ указатель на начало списка \\
+\hline
+{\em p\-U} & -\/ указатель на пользователя, на экран которого выводится список людей, отправивших ему привет \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызовов\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{func_8cpp_ae49e4f4b5d423f5739a1cf8ea5f41f24_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{func_8cpp_ae49e4f4b5d423f5739a1cf8ea5f41f24_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{func_8cpp_ad2b7a2174e529e85e69cf24837c42bd3}{\index{func.\-cpp@{func.\-cpp}!load@{load}}
+\index{load@{load}!func.cpp@{func.\-cpp}}
+\subsubsection[{load}]{\setlength{\rightskip}{0pt plus 5cm}{\bf user}$\ast$ load (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{data, }
+\item[{{\bf admin} \&}]{adm}
+\end{DoxyParamCaption}
+)}}\label{func_8cpp_ad2b7a2174e529e85e69cf24837c42bd3}
+функция загрузки списка пользователей из файла 
+\begin{DoxyParams}{Аргументы}
+{\em data} & -\/ название файла \\
+\hline
+{\em adm} & -\/ ссылка на объект класса \char`\"{}админ\char`\"{}, нужна для чтения данных админа их файла \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+beg -\/ указатель на начало списка 
+\end{DoxyReturn}
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{func_8cpp_ad2b7a2174e529e85e69cf24837c42bd3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{func_8cpp_ab34a42c23773278dbc4bc8802b70273d}{\index{func.\-cpp@{func.\-cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!func.cpp@{func.\-cpp}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{stream, }
+\item[{{\bf admin}}]{adm}
+\end{DoxyParamCaption}
+)}}\label{func_8cpp_ab34a42c23773278dbc4bc8802b70273d}
+\hypertarget{func_8cpp_a8dd9a408d4bec3c2e2fa99d861c3a551}{\index{func.\-cpp@{func.\-cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!func.cpp@{func.\-cpp}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{stream, }
+\item[{{\bf user}}]{usr}
+\end{DoxyParamCaption}
+)}}\label{func_8cpp_a8dd9a408d4bec3c2e2fa99d861c3a551}
+\hypertarget{func_8cpp_a32141087fecfdc440a1e3c16e3363dfb}{\index{func.\-cpp@{func.\-cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!func.cpp@{func.\-cpp}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{stream, }
+\item[{{\bf circle}}]{cir}
+\end{DoxyParamCaption}
+)}}\label{func_8cpp_a32141087fecfdc440a1e3c16e3363dfb}
+\hypertarget{func_8cpp_a68af78ea701a4eae11203e7defdc7e59}{\index{func.\-cpp@{func.\-cpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!func.cpp@{func.\-cpp}}
+\subsubsection[{operator$>$$>$}]{\setlength{\rightskip}{0pt plus 5cm}istream\& operator$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{stream, }
+\item[{{\bf admin} \&}]{adm}
+\end{DoxyParamCaption}
+)}}\label{func_8cpp_a68af78ea701a4eae11203e7defdc7e59}
+\hypertarget{func_8cpp_a7fd4b22d0a1c241217d6d30c0af07078}{\index{func.\-cpp@{func.\-cpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!func.cpp@{func.\-cpp}}
+\subsubsection[{operator$>$$>$}]{\setlength{\rightskip}{0pt plus 5cm}istream\& operator$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{stream, }
+\item[{{\bf user} \&}]{usr}
+\end{DoxyParamCaption}
+)}}\label{func_8cpp_a7fd4b22d0a1c241217d6d30c0af07078}
+\hypertarget{func_8cpp_a029cd4589dbaa21d0ff2463e3a7aab52}{\index{func.\-cpp@{func.\-cpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!func.cpp@{func.\-cpp}}
+\subsubsection[{operator$>$$>$}]{\setlength{\rightskip}{0pt plus 5cm}istream\& operator$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{stream, }
+\item[{{\bf circle} \&}]{cir}
+\end{DoxyParamCaption}
+)}}\label{func_8cpp_a029cd4589dbaa21d0ff2463e3a7aab52}
+\hypertarget{func_8cpp_a56309ab6c886ab5808deb57ee782027a}{\index{func.\-cpp@{func.\-cpp}!reg@{reg}}
+\index{reg@{reg}!func.cpp@{func.\-cpp}}
+\subsubsection[{reg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf user}$\ast$ reg (
+\begin{DoxyParamCaption}
+\item[{unsigned int \&}]{d, }
+\item[{{\bf user} $\ast$}]{beg, }
+\item[{char $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{func_8cpp_a56309ab6c886ab5808deb57ee782027a}
+reg функция регистрации 
+\begin{DoxyParams}{Аргументы}
+{\em d} & -\/ id зарегистрировавшегося пользователя \\
+\hline
+{\em beg} & -\/ указатель на начало списка \\
+\hline
+{\em data} & -\/ название файла \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+beg -\/ указатель на начало списка 
+\end{DoxyReturn}
+
+
+Граф вызовов\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{func_8cpp_a56309ab6c886ab5808deb57ee782027a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{func_8cpp_a56309ab6c886ab5808deb57ee782027a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{func_8cpp_a358800d72f371bf7ef84d0d6b3873e43}{\index{func.\-cpp@{func.\-cpp}!save@{save}}
+\index{save@{save}!func.cpp@{func.\-cpp}}
+\subsubsection[{save}]{\setlength{\rightskip}{0pt plus 5cm}int save (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{data, }
+\item[{{\bf user} $\ast$}]{beg, }
+\item[{{\bf admin} \&}]{adm}
+\end{DoxyParamCaption}
+)}}\label{func_8cpp_a358800d72f371bf7ef84d0d6b3873e43}
+функция сохранения списка пользователей и параметров адина в файл 
+\begin{DoxyParams}{Аргументы}
+{\em data} & -\/ название фйла \\
+\hline
+{\em beg} & -\/ указатель на начало списка \\
+\hline
+{\em adm} & -\/ админ \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызовов\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{func_8cpp_a358800d72f371bf7ef84d0d6b3873e43_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{func_8cpp_a358800d72f371bf7ef84d0d6b3873e43_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{func_8cpp_a598b17494793268fcb7d4917d3179ee2}{\index{func.\-cpp@{func.\-cpp}!setting@{setting}}
+\index{setting@{setting}!func.cpp@{func.\-cpp}}
+\subsubsection[{setting}]{\setlength{\rightskip}{0pt plus 5cm}{\bf user}$\ast$ setting (
+\begin{DoxyParamCaption}
+\item[{int \&}]{c, }
+\item[{{\bf user} $\ast$}]{beg, }
+\item[{{\bf user} $\ast$}]{p\-U}
+\end{DoxyParamCaption}
+)}}\label{func_8cpp_a598b17494793268fcb7d4917d3179ee2}
+функция -\/ меню настроек аккаунта пользователя(изменить пароль, удалить аккаунт) 
+\begin{DoxyParams}{Аргументы}
+{\em c} & -\/ ссылка на переменную, контролирующую дальнейший выбор пункта меню. если пользователь выбирает удаление аккаунта происходит переход в меню авторизации, в других случаях в меню пользователя \\
+\hline
+{\em bеg} & -\/ указатель на начало списка \\
+\hline
+{\em p\-U} & -\/ указатель на пользователя, который тзменяет параметры своего аккаунта \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+beg -\/ указатель на начало списка 
+\end{DoxyReturn}
+
+
+Граф вызовов\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{func_8cpp_a598b17494793268fcb7d4917d3179ee2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{func_8cpp_a598b17494793268fcb7d4917d3179ee2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{func_8cpp_afae8672ec62ae353f834d7e0e40b6084}{\index{func.\-cpp@{func.\-cpp}!showr@{showr}}
+\index{showr@{showr}!func.cpp@{func.\-cpp}}
+\subsubsection[{showr}]{\setlength{\rightskip}{0pt plus 5cm}void showr (
+\begin{DoxyParamCaption}
+\item[{{\bf user} $\ast$}]{beg, }
+\item[{{\bf user} $\ast$}]{p\-U}
+\end{DoxyParamCaption}
+)}}\label{func_8cpp_afae8672ec62ae353f834d7e0e40b6084}
+функция показа списка людей в радиусе пользователя, с информацией об их местеположении(расстояние и направление) 
+\begin{DoxyParams}{Аргументы}
+{\em beg} & -\/ указатель на начало списка \\
+\hline
+{\em p\-U} & -\/ указатель на пользователя, который ищет людей в своем радиусе \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызовов\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{func_8cpp_afae8672ec62ae353f834d7e0e40b6084_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{func_8cpp_afae8672ec62ae353f834d7e0e40b6084_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{func_8cpp_ade050d1ceaa47cd21a06b898e5c89cf1}{\index{func.\-cpp@{func.\-cpp}!vect@{vect}}
+\index{vect@{vect}!func.cpp@{func.\-cpp}}
+\subsubsection[{vect}]{\setlength{\rightskip}{0pt plus 5cm}bool vect (
+\begin{DoxyParamCaption}
+\item[{const unsigned int \&}]{x1, }
+\item[{const unsigned int \&}]{y1, }
+\item[{const unsigned int \&}]{x2, }
+\item[{const unsigned int \&}]{y2, }
+\item[{const unsigned int \&}]{rad}
+\end{DoxyParamCaption}
+)}}\label{func_8cpp_ade050d1ceaa47cd21a06b898e5c89cf1}
+Функция показа информации о векторе в удобном для пользователя виде. Выводит на экран расстояние между точками и направление от первой точки ко второй, если расстояние между точками меньше чем радиус, в котором пользователь желает видеть людей. Имеет пять входных параметров. 
+\begin{DoxyParams}{Аргументы}
+{\em x1} & -\/ параметр, отвечающий за координату Х точки начала вектора \\
+\hline
+{\em y1} & -\/ параметр, отвечающий за координату У точки начала вектора \\
+\hline
+{\em x2} & -\/ параметр, отвечающий за координату Х точки конца вектора \\
+\hline
+{\em y2} & -\/ параметр, отвечающий за координату У точки конца вектора \\
+\hline
+{\em rad} & -\/ параметр, отвечающий за радиус, в котром пользователь хочет видеть дюдей \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{func_8cpp_ade050d1ceaa47cd21a06b898e5c89cf1_icgraph}
+\end{center}
+\end{figure}
+
+

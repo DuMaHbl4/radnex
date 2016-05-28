@@ -1,0 +1,4 @@
+<map id="user" name="user">
+<area shape="rect" id="node2" href="$classperson.html" title="базовый класс, содержит в себе общую информацию классов наследников(админ и пользователь). Не используется в программе напрямую " alt="" coords="5,5,67,32"/>
+<area shape="rect" id="node3" href="$classcircle.html" title="класс содержит информацию об окружности и методы, позволяющие изменять ее параметры ..." alt="" coords="91,5,144,32"/>
+</map>

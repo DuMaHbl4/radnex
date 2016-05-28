@@ -1,0 +1,4 @@
+<map id="person" name="person">
+<area shape="rect" id="node2" href="$classadmin.html" title="класс &quot;админ&quot;, пользователь, вошедший от его имени, имеет возможность просматривать информацию и удал..." alt="" coords="5,80,61,107"/>
+<area shape="rect" id="node3" href="$classuser.html" title="класс &quot;Пользователь&quot; содержит в себе всю необходимую информацию о пользователе " alt="" coords="86,80,132,107"/>
+</map>

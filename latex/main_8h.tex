@@ -1,0 +1,537 @@
+\hypertarget{main_8h}{\section{Файл main.\-h}
+\label{main_8h}\index{main.\-h@{main.\-h}}
+}
+{\ttfamily \#include \char`\"{}person.\-h\char`\"{}}\\*
+Граф включаемых заголовочных файлов для main.\-h\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{main_8h__incl}
+\end{center}
+\end{figure}
+Граф файлов, в которые включается этот файл\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{main_8h_a60ebaaf075977f61458d3ebe11bd44d8}{menu} (char $\ast$data)
+\item 
+\hyperlink{classuser}{user} $\ast$ \hyperlink{main_8h_a332687c5eb199e2bacd0b7a1bd282350}{reg} (unsigned int \&id, \hyperlink{classuser}{user} $\ast$beg, char $\ast$data)
+\item 
+\hyperlink{classuser}{user} $\ast$ \hyperlink{main_8h_ad2b7a2174e529e85e69cf24837c42bd3}{load} (char $\ast$data, \hyperlink{classadmin}{admin} \&adm)
+\item 
+int \hyperlink{main_8h_a358800d72f371bf7ef84d0d6b3873e43}{save} (char $\ast$data, \hyperlink{classuser}{user} $\ast$beg, \hyperlink{classadmin}{admin} \&adm)
+\item 
+unsigned int \hyperlink{main_8h_a1caa495e38a523923f4a1ddd6e9dbecc}{avt} (\hyperlink{classuser}{user} $\ast$beg, const \hyperlink{classadmin}{admin} \&adm)
+\item 
+void \hyperlink{main_8h_afae8672ec62ae353f834d7e0e40b6084}{showr} (\hyperlink{classuser}{user} $\ast$beg, \hyperlink{classuser}{user} $\ast$p\-U)
+\item 
+\hyperlink{classuser}{user} $\ast$ \hyperlink{main_8h_a598b17494793268fcb7d4917d3179ee2}{setting} (int \&c, \hyperlink{classuser}{user} $\ast$beg, \hyperlink{classuser}{user} $\ast$p\-U)
+\item 
+void \hyperlink{main_8h_a8f4700d134674d7f19c2446cb6587d85}{poisk} (\hyperlink{classuser}{user} $\ast$beg)
+\item 
+void \hyperlink{main_8h_ae84e6e7e36b1ecf7e591b729ad21c4de}{pokas} (\hyperlink{classuser}{user} $\ast$beg)
+\item 
+\hyperlink{classuser}{user} $\ast$ \hyperlink{main_8h_a8bb3ebad2e7493f6d9b5b835c541f1fd}{delet} (\hyperlink{classuser}{user} $\ast$beg)
+\item 
+void \hyperlink{main_8h_a17c795e769804ac60898af2bc625a930}{repass} (\hyperlink{classadmin}{admin} \&adm)
+\item 
+void \hyperlink{main_8h_ae49e4f4b5d423f5739a1cf8ea5f41f24}{hello} (\hyperlink{classuser}{user} $\ast$beg, \hyperlink{classuser}{user} $\ast$p\-U)
+\item 
+bool \hyperlink{main_8h_ade050d1ceaa47cd21a06b898e5c89cf1}{vect} (const unsigned int \&x1, const unsigned int \&y1, const unsigned int \&x2, const unsigned int \&y2, const unsigned int \&rad)
+\end{DoxyCompactItemize}
+
+
+\subsection{Функции}
+\hypertarget{main_8h_a1caa495e38a523923f4a1ddd6e9dbecc}{\index{main.\-h@{main.\-h}!avt@{avt}}
+\index{avt@{avt}!main.h@{main.\-h}}
+\subsubsection[{avt}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int avt (
+\begin{DoxyParamCaption}
+\item[{{\bf user} $\ast$}]{beg, }
+\item[{const {\bf admin} \&}]{adm}
+\end{DoxyParamCaption}
+)}}\label{main_8h_a1caa495e38a523923f4a1ddd6e9dbecc}
+функция авторизации. в зависимости от введеных почты и пароля программа может запросить ввести данные повторно, либо перейти в меню обычного пользователя, либо перейти в меню \char`\"{}адимина\char`\"{} 
+\begin{DoxyParams}{Аргументы}
+{\em beg} & -\/ указатель на начало списка \\
+\hline
+{\em adm} & -\/ объект класса \char`\"{}админ\char`\"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+id, авторизовавшегося пользователя 
+\end{DoxyReturn}
+
+
+Граф вызовов\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{main_8h_a1caa495e38a523923f4a1ddd6e9dbecc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{main_8h_a1caa495e38a523923f4a1ddd6e9dbecc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8h_a8bb3ebad2e7493f6d9b5b835c541f1fd}{\index{main.\-h@{main.\-h}!delet@{delet}}
+\index{delet@{delet}!main.h@{main.\-h}}
+\subsubsection[{delet}]{\setlength{\rightskip}{0pt plus 5cm}{\bf user}$\ast$ delet (
+\begin{DoxyParamCaption}
+\item[{{\bf user} $\ast$}]{beg}
+\end{DoxyParamCaption}
+)}}\label{main_8h_a8bb3ebad2e7493f6d9b5b835c541f1fd}
+функция (админа )удаления пользователя. удаляется пользователь, выбраный админом 
+\begin{DoxyParams}{Аргументы}
+{\em beg-\/} & указатель на начало списка \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызовов\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{main_8h_a8bb3ebad2e7493f6d9b5b835c541f1fd_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{main_8h_a8bb3ebad2e7493f6d9b5b835c541f1fd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8h_ae49e4f4b5d423f5739a1cf8ea5f41f24}{\index{main.\-h@{main.\-h}!hello@{hello}}
+\index{hello@{hello}!main.h@{main.\-h}}
+\subsubsection[{hello}]{\setlength{\rightskip}{0pt plus 5cm}void hello (
+\begin{DoxyParamCaption}
+\item[{{\bf user} $\ast$}]{beg, }
+\item[{{\bf user} $\ast$}]{p\-U}
+\end{DoxyParamCaption}
+)}}\label{main_8h_ae49e4f4b5d423f5739a1cf8ea5f41f24}
+функция \char`\"{}привет\char`\"{} выводит на экран пользователя список людей, отправивших ему привет 
+\begin{DoxyParams}{Аргументы}
+{\em beg} & -\/ указатель на начало списка \\
+\hline
+{\em p\-U} & -\/ указатель на пользователя, на экран которого выводится список людей, отправивших ему привет \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызовов\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{main_8h_ae49e4f4b5d423f5739a1cf8ea5f41f24_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{main_8h_ae49e4f4b5d423f5739a1cf8ea5f41f24_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8h_ad2b7a2174e529e85e69cf24837c42bd3}{\index{main.\-h@{main.\-h}!load@{load}}
+\index{load@{load}!main.h@{main.\-h}}
+\subsubsection[{load}]{\setlength{\rightskip}{0pt plus 5cm}{\bf user}$\ast$ load (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{data, }
+\item[{{\bf admin} \&}]{adm}
+\end{DoxyParamCaption}
+)}}\label{main_8h_ad2b7a2174e529e85e69cf24837c42bd3}
+функция загрузки списка пользователей из файла 
+\begin{DoxyParams}{Аргументы}
+{\em data} & -\/ название файла \\
+\hline
+{\em adm} & -\/ ссылка на объект класса \char`\"{}админ\char`\"{}, нужна для чтения данных админа их файла \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+beg -\/ указатель на начало списка 
+\end{DoxyReturn}
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{main_8h_ad2b7a2174e529e85e69cf24837c42bd3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8h_a60ebaaf075977f61458d3ebe11bd44d8}{\index{main.\-h@{main.\-h}!menu@{menu}}
+\index{menu@{menu}!main.h@{main.\-h}}
+\subsubsection[{menu}]{\setlength{\rightskip}{0pt plus 5cm}int menu (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{main_8h_a60ebaaf075977f61458d3ebe11bd44d8}
+меню 
+\begin{DoxyParams}{Аргументы}
+{\em data} & -\/ имя файла со всей информацией о пользователях \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызовов\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{main_8h_a60ebaaf075977f61458d3ebe11bd44d8_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{main_8h_a60ebaaf075977f61458d3ebe11bd44d8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8h_a8f4700d134674d7f19c2446cb6587d85}{\index{main.\-h@{main.\-h}!poisk@{poisk}}
+\index{poisk@{poisk}!main.h@{main.\-h}}
+\subsubsection[{poisk}]{\setlength{\rightskip}{0pt plus 5cm}void poisk (
+\begin{DoxyParamCaption}
+\item[{{\bf user} $\ast$}]{beg}
+\end{DoxyParamCaption}
+)}}\label{main_8h_a8f4700d134674d7f19c2446cb6587d85}
+функция (админа) поиска пользователя по id. Если пользователь с введеным id существует то на экран выводится информация о нем. 
+\begin{DoxyParams}{Аргументы}
+{\em beg} & -\/ указатель на начало списка \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызовов\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{main_8h_a8f4700d134674d7f19c2446cb6587d85_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{main_8h_a8f4700d134674d7f19c2446cb6587d85_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8h_ae84e6e7e36b1ecf7e591b729ad21c4de}{\index{main.\-h@{main.\-h}!pokas@{pokas}}
+\index{pokas@{pokas}!main.h@{main.\-h}}
+\subsubsection[{pokas}]{\setlength{\rightskip}{0pt plus 5cm}void pokas (
+\begin{DoxyParamCaption}
+\item[{{\bf user} $\ast$}]{beg}
+\end{DoxyParamCaption}
+)}}\label{main_8h_ae84e6e7e36b1ecf7e591b729ad21c4de}
+функция (админа) вывода информации о каждом пользователе на экран в виде списка. 
+\begin{DoxyParams}{Аргументы}
+{\em beg} & -\/ указатель на начало списка \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызовов\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{main_8h_ae84e6e7e36b1ecf7e591b729ad21c4de_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{main_8h_ae84e6e7e36b1ecf7e591b729ad21c4de_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8h_a332687c5eb199e2bacd0b7a1bd282350}{\index{main.\-h@{main.\-h}!reg@{reg}}
+\index{reg@{reg}!main.h@{main.\-h}}
+\subsubsection[{reg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf user}$\ast$ reg (
+\begin{DoxyParamCaption}
+\item[{unsigned int \&}]{d, }
+\item[{{\bf user} $\ast$}]{beg, }
+\item[{char $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{main_8h_a332687c5eb199e2bacd0b7a1bd282350}
+reg функция регистрации 
+\begin{DoxyParams}{Аргументы}
+{\em d} & -\/ id зарегистрировавшегося пользователя \\
+\hline
+{\em beg} & -\/ указатель на начало списка \\
+\hline
+{\em data} & -\/ название файла \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+beg -\/ указатель на начало списка 
+\end{DoxyReturn}
+
+
+Граф вызовов\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{main_8h_a332687c5eb199e2bacd0b7a1bd282350_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{main_8h_a332687c5eb199e2bacd0b7a1bd282350_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8h_a17c795e769804ac60898af2bc625a930}{\index{main.\-h@{main.\-h}!repass@{repass}}
+\index{repass@{repass}!main.h@{main.\-h}}
+\subsubsection[{repass}]{\setlength{\rightskip}{0pt plus 5cm}void repass (
+\begin{DoxyParamCaption}
+\item[{{\bf admin} \&}]{adm}
+\end{DoxyParamCaption}
+)}}\label{main_8h_a17c795e769804ac60898af2bc625a930}
+функция (админа) изменения пароля 
+\begin{DoxyParams}{Аргументы}
+{\em adm} & -\/ ссылка на объект \char`\"{}админ\char`\"{} \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызовов\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{main_8h_a17c795e769804ac60898af2bc625a930_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{main_8h_a17c795e769804ac60898af2bc625a930_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8h_a358800d72f371bf7ef84d0d6b3873e43}{\index{main.\-h@{main.\-h}!save@{save}}
+\index{save@{save}!main.h@{main.\-h}}
+\subsubsection[{save}]{\setlength{\rightskip}{0pt plus 5cm}int save (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{data, }
+\item[{{\bf user} $\ast$}]{beg, }
+\item[{{\bf admin} \&}]{adm}
+\end{DoxyParamCaption}
+)}}\label{main_8h_a358800d72f371bf7ef84d0d6b3873e43}
+функция сохранения списка пользователей и параметров адина в файл 
+\begin{DoxyParams}{Аргументы}
+{\em data} & -\/ название фйла \\
+\hline
+{\em beg} & -\/ указатель на начало списка \\
+\hline
+{\em adm} & -\/ админ \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызовов\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{main_8h_a358800d72f371bf7ef84d0d6b3873e43_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{main_8h_a358800d72f371bf7ef84d0d6b3873e43_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8h_a598b17494793268fcb7d4917d3179ee2}{\index{main.\-h@{main.\-h}!setting@{setting}}
+\index{setting@{setting}!main.h@{main.\-h}}
+\subsubsection[{setting}]{\setlength{\rightskip}{0pt plus 5cm}{\bf user}$\ast$ setting (
+\begin{DoxyParamCaption}
+\item[{int \&}]{c, }
+\item[{{\bf user} $\ast$}]{beg, }
+\item[{{\bf user} $\ast$}]{p\-U}
+\end{DoxyParamCaption}
+)}}\label{main_8h_a598b17494793268fcb7d4917d3179ee2}
+функция -\/ меню настроек аккаунта пользователя(изменить пароль, удалить аккаунт) 
+\begin{DoxyParams}{Аргументы}
+{\em c} & -\/ ссылка на переменную, контролирующую дальнейший выбор пункта меню. если пользователь выбирает удаление аккаунта происходит переход в меню авторизации, в других случаях в меню пользователя \\
+\hline
+{\em bеg} & -\/ указатель на начало списка \\
+\hline
+{\em p\-U} & -\/ указатель на пользователя, который тзменяет параметры своего аккаунта \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+beg -\/ указатель на начало списка 
+\end{DoxyReturn}
+
+
+Граф вызовов\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{main_8h_a598b17494793268fcb7d4917d3179ee2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{main_8h_a598b17494793268fcb7d4917d3179ee2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8h_afae8672ec62ae353f834d7e0e40b6084}{\index{main.\-h@{main.\-h}!showr@{showr}}
+\index{showr@{showr}!main.h@{main.\-h}}
+\subsubsection[{showr}]{\setlength{\rightskip}{0pt plus 5cm}void showr (
+\begin{DoxyParamCaption}
+\item[{{\bf user} $\ast$}]{beg, }
+\item[{{\bf user} $\ast$}]{p\-U}
+\end{DoxyParamCaption}
+)}}\label{main_8h_afae8672ec62ae353f834d7e0e40b6084}
+функция показа списка людей в радиусе пользователя, с информацией об их местеположении(расстояние и направление) 
+\begin{DoxyParams}{Аргументы}
+{\em beg} & -\/ указатель на начало списка \\
+\hline
+{\em p\-U} & -\/ указатель на пользователя, который ищет людей в своем радиусе \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызовов\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{main_8h_afae8672ec62ae353f834d7e0e40b6084_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{main_8h_afae8672ec62ae353f834d7e0e40b6084_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8h_ade050d1ceaa47cd21a06b898e5c89cf1}{\index{main.\-h@{main.\-h}!vect@{vect}}
+\index{vect@{vect}!main.h@{main.\-h}}
+\subsubsection[{vect}]{\setlength{\rightskip}{0pt plus 5cm}bool vect (
+\begin{DoxyParamCaption}
+\item[{const unsigned int \&}]{x1, }
+\item[{const unsigned int \&}]{y1, }
+\item[{const unsigned int \&}]{x2, }
+\item[{const unsigned int \&}]{y2, }
+\item[{const unsigned int \&}]{rad}
+\end{DoxyParamCaption}
+)}}\label{main_8h_ade050d1ceaa47cd21a06b898e5c89cf1}
+vect Функция показа информации о векторе в удобном для пользователя виде. Выводит на экран расстояние между точками и направление от первой точки ко второй, если расстояние между точками меньше чем радиус, в котором пользователь желает видеть людей. Имеет пять входных параметров. 
+\begin{DoxyParams}{Аргументы}
+{\em x1} & -\/ параметр, отвечающий за координату Х точки начала вектора \\
+\hline
+{\em y1} & -\/ параметр, отвечающий за координату У точки начала вектора \\
+\hline
+{\em x2} & -\/ параметр, отвечающий за координату Х точки конца вектора \\
+\hline
+{\em y2} & -\/ параметр, отвечающий за координату У точки конца вектора \\
+\hline
+{\em rad} & -\/ параметр, отвечающий за радиус, в котром пользователь хочет видеть дюдей\\
+\hline
+\end{DoxyParams}
+Функция показа информации о векторе в удобном для пользователя виде. Выводит на экран расстояние между точками и направление от первой точки ко второй, если расстояние между точками меньше чем радиус, в котором пользователь желает видеть людей. Имеет пять входных параметров. 
+\begin{DoxyParams}{Аргументы}
+{\em x1} & -\/ параметр, отвечающий за координату Х точки начала вектора \\
+\hline
+{\em y1} & -\/ параметр, отвечающий за координату У точки начала вектора \\
+\hline
+{\em x2} & -\/ параметр, отвечающий за координату Х точки конца вектора \\
+\hline
+{\em y2} & -\/ параметр, отвечающий за координату У точки конца вектора \\
+\hline
+{\em rad} & -\/ параметр, отвечающий за радиус, в котром пользователь хочет видеть дюдей \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{main_8h_ade050d1ceaa47cd21a06b898e5c89cf1_icgraph}
+\end{center}
+\end{figure}
+
+

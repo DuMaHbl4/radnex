@@ -1,0 +1,227 @@
+\hypertarget{classcircle}{\section{Класс circle}
+\label{classcircle}\index{circle@{circle}}
+}
+
+
+класс содержит информацию об окружности и методы, позволяющие изменять ее параметры  
+
+
+
+
+{\ttfamily \#include $<$person.\-h$>$}
+
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcircle_a4e0786fc75051f3bbe5de2e08ef9712d}{circle} ()
+\begin{DoxyCompactList}\small\item\em конструктор по умолчанию \end{DoxyCompactList}\item 
+\hyperlink{classcircle_ab01e334fbdc01bad4f219ecee424795d}{circle} (unsigned int h, unsigned int i, unsigned int r)
+\item 
+unsigned int \hyperlink{classcircle_acb03d8b165cd8119e0db27e3d1f25973}{get\-X} () const 
+\item 
+unsigned int \hyperlink{classcircle_ac9a1cb1a59361d4c8aa2cfe97be9cd6b}{get\-Y} () const 
+\item 
+unsigned int \hyperlink{classcircle_a86f4fa52100c12e29c81a0d4cebcf47d}{get\-Rad} () const 
+\item 
+void \hyperlink{classcircle_a667301d843f0a0edfc92d32a43826ca7}{re\-Rad} (unsigned int r)
+\item 
+void \hyperlink{classcircle_a98edcf827c503e0259996abe32cb257e}{re\-Coord} (unsigned int h, unsigned int i)
+\item 
+void \hyperlink{classcircle_a41ac1ebe6a840fb68ea20ab9bb57be57}{showcir} () const 
+\begin{DoxyCompactList}\small\item\em вывод всей информации об окружности на экран \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Друзья}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{classcircle_a32141087fecfdc440a1e3c16e3363dfb}{operator$<$$<$} (ostream \&stream, \hyperlink{classcircle}{circle} cir)
+\begin{DoxyCompactList}\small\item\em перегруженый оператор $<$$<$. \end{DoxyCompactList}\item 
+istream \& \hyperlink{classcircle_a029cd4589dbaa21d0ff2463e3a7aab52}{operator$>$$>$} (istream \&stream, \hyperlink{classcircle}{circle} \&cir)
+\begin{DoxyCompactList}\small\item\em перегруженый оператор $>$$>$ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Подробное описание}
+класс содержит информацию об окружности и методы, позволяющие изменять ее параметры 
+
+\subsection{Конструктор(ы)}
+\hypertarget{classcircle_a4e0786fc75051f3bbe5de2e08ef9712d}{\index{circle@{circle}!circle@{circle}}
+\index{circle@{circle}!circle@{circle}}
+\subsubsection[{circle}]{\setlength{\rightskip}{0pt plus 5cm}circle\-::circle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcircle_a4e0786fc75051f3bbe5de2e08ef9712d}
+
+
+конструктор по умолчанию 
+
+\hypertarget{classcircle_ab01e334fbdc01bad4f219ecee424795d}{\index{circle@{circle}!circle@{circle}}
+\index{circle@{circle}!circle@{circle}}
+\subsubsection[{circle}]{\setlength{\rightskip}{0pt plus 5cm}circle\-::circle (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{h, }
+\item[{unsigned int}]{i, }
+\item[{unsigned int}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcircle_ab01e334fbdc01bad4f219ecee424795d}
+конструктор с параметрами 
+\begin{DoxyParams}{Аргументы}
+{\em вся} & информация об окружности \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Методы}
+\hypertarget{classcircle_a86f4fa52100c12e29c81a0d4cebcf47d}{\index{circle@{circle}!get\-Rad@{get\-Rad}}
+\index{get\-Rad@{get\-Rad}!circle@{circle}}
+\subsubsection[{get\-Rad}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int circle\-::get\-Rad (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcircle_a86f4fa52100c12e29c81a0d4cebcf47d}
+\begin{DoxyReturn}{Возвращает}
+rad -\/ радиус 
+\end{DoxyReturn}
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcircle_a86f4fa52100c12e29c81a0d4cebcf47d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classcircle_acb03d8b165cd8119e0db27e3d1f25973}{\index{circle@{circle}!get\-X@{get\-X}}
+\index{get\-X@{get\-X}!circle@{circle}}
+\subsubsection[{get\-X}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int circle\-::get\-X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcircle_acb03d8b165cd8119e0db27e3d1f25973}
+\begin{DoxyReturn}{Возвращает}
+х -\/ координату по Х центра окружности 
+\end{DoxyReturn}
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcircle_acb03d8b165cd8119e0db27e3d1f25973_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classcircle_ac9a1cb1a59361d4c8aa2cfe97be9cd6b}{\index{circle@{circle}!get\-Y@{get\-Y}}
+\index{get\-Y@{get\-Y}!circle@{circle}}
+\subsubsection[{get\-Y}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int circle\-::get\-Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcircle_ac9a1cb1a59361d4c8aa2cfe97be9cd6b}
+\begin{DoxyReturn}{Возвращает}
+y -\/ координату по у центра окружности 
+\end{DoxyReturn}
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcircle_ac9a1cb1a59361d4c8aa2cfe97be9cd6b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classcircle_a98edcf827c503e0259996abe32cb257e}{\index{circle@{circle}!re\-Coord@{re\-Coord}}
+\index{re\-Coord@{re\-Coord}!circle@{circle}}
+\subsubsection[{re\-Coord}]{\setlength{\rightskip}{0pt plus 5cm}void circle\-::re\-Coord (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{h, }
+\item[{unsigned int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcircle_a98edcf827c503e0259996abe32cb257e}
+изменение координат 
+\begin{DoxyParams}{Аргументы}
+{\em h} & -\/ x \\
+\hline
+{\em i} & -\/ y \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{classcircle_a98edcf827c503e0259996abe32cb257e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classcircle_a667301d843f0a0edfc92d32a43826ca7}{\index{circle@{circle}!re\-Rad@{re\-Rad}}
+\index{re\-Rad@{re\-Rad}!circle@{circle}}
+\subsubsection[{re\-Rad}]{\setlength{\rightskip}{0pt plus 5cm}void circle\-::re\-Rad (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcircle_a667301d843f0a0edfc92d32a43826ca7}
+изменение радиуса 
+\begin{DoxyParams}{Аргументы}
+{\em r} & -\/ радиус \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{classcircle_a667301d843f0a0edfc92d32a43826ca7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classcircle_a41ac1ebe6a840fb68ea20ab9bb57be57}{\index{circle@{circle}!showcir@{showcir}}
+\index{showcir@{showcir}!circle@{circle}}
+\subsubsection[{showcir}]{\setlength{\rightskip}{0pt plus 5cm}void circle\-::showcir (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcircle_a41ac1ebe6a840fb68ea20ab9bb57be57}
+
+
+вывод всей информации об окружности на экран 
+
+
+
+\subsection{Документация по друзьям класса и функциям, отноносящимся к классу}
+\hypertarget{classcircle_a32141087fecfdc440a1e3c16e3363dfb}{\index{circle@{circle}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!circle@{circle}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{stream, }
+\item[{{\bf circle}}]{cir}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classcircle_a32141087fecfdc440a1e3c16e3363dfb}
+
+
+перегруженый оператор $<$$<$. 
+
+\hypertarget{classcircle_a029cd4589dbaa21d0ff2463e3a7aab52}{\index{circle@{circle}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!circle@{circle}}
+\subsubsection[{operator$>$$>$}]{\setlength{\rightskip}{0pt plus 5cm}istream\& operator$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{stream, }
+\item[{{\bf circle} \&}]{cir}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classcircle_a029cd4589dbaa21d0ff2463e3a7aab52}
+
+
+перегруженый оператор $>$$>$ 
+
+
+
+Объявления и описания членов класса находятся в файле\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{person_8h}{person.\-h}\end{DoxyCompactItemize}

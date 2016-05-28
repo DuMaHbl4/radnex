@@ -1,0 +1,151 @@
+\hypertarget{funkadm_8cpp}{\section{Файл funkadm.\-cpp}
+\label{funkadm_8cpp}\index{funkadm.\-cpp@{funkadm.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}main.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+Граф включаемых заголовочных файлов для funkadm.\-cpp\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{funkadm_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{funkadm_8cpp_a8f4700d134674d7f19c2446cb6587d85}{poisk} (\hyperlink{classuser}{user} $\ast$beg)
+\item 
+void \hyperlink{funkadm_8cpp_ae84e6e7e36b1ecf7e591b729ad21c4de}{pokas} (\hyperlink{classuser}{user} $\ast$beg)
+\item 
+\hyperlink{classuser}{user} $\ast$ \hyperlink{funkadm_8cpp_a8bb3ebad2e7493f6d9b5b835c541f1fd}{delet} (\hyperlink{classuser}{user} $\ast$beg)
+\item 
+void \hyperlink{funkadm_8cpp_a17c795e769804ac60898af2bc625a930}{repass} (\hyperlink{classadmin}{admin} \&adm)
+\end{DoxyCompactItemize}
+
+
+\subsection{Функции}
+\hypertarget{funkadm_8cpp_a8bb3ebad2e7493f6d9b5b835c541f1fd}{\index{funkadm.\-cpp@{funkadm.\-cpp}!delet@{delet}}
+\index{delet@{delet}!funkadm.cpp@{funkadm.\-cpp}}
+\subsubsection[{delet}]{\setlength{\rightskip}{0pt plus 5cm}{\bf user}$\ast$ delet (
+\begin{DoxyParamCaption}
+\item[{{\bf user} $\ast$}]{beg}
+\end{DoxyParamCaption}
+)}}\label{funkadm_8cpp_a8bb3ebad2e7493f6d9b5b835c541f1fd}
+функция (админа )удаления пользователя. удаляется пользователь, выбраный админом 
+\begin{DoxyParams}{Аргументы}
+{\em beg-\/} & указатель на начало списка \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызовов\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{funkadm_8cpp_a8bb3ebad2e7493f6d9b5b835c541f1fd_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{funkadm_8cpp_a8bb3ebad2e7493f6d9b5b835c541f1fd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{funkadm_8cpp_a8f4700d134674d7f19c2446cb6587d85}{\index{funkadm.\-cpp@{funkadm.\-cpp}!poisk@{poisk}}
+\index{poisk@{poisk}!funkadm.cpp@{funkadm.\-cpp}}
+\subsubsection[{poisk}]{\setlength{\rightskip}{0pt plus 5cm}void poisk (
+\begin{DoxyParamCaption}
+\item[{{\bf user} $\ast$}]{beg}
+\end{DoxyParamCaption}
+)}}\label{funkadm_8cpp_a8f4700d134674d7f19c2446cb6587d85}
+функция (админа) поиска пользователя по id. Если пользователь с введеным id существует то на экран выводится информация о нем. 
+\begin{DoxyParams}{Аргументы}
+{\em beg} & -\/ указатель на начало списка \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{funkadm_8cpp_a8f4700d134674d7f19c2446cb6587d85_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{funkadm_8cpp_ae84e6e7e36b1ecf7e591b729ad21c4de}{\index{funkadm.\-cpp@{funkadm.\-cpp}!pokas@{pokas}}
+\index{pokas@{pokas}!funkadm.cpp@{funkadm.\-cpp}}
+\subsubsection[{pokas}]{\setlength{\rightskip}{0pt plus 5cm}void pokas (
+\begin{DoxyParamCaption}
+\item[{{\bf user} $\ast$}]{beg}
+\end{DoxyParamCaption}
+)}}\label{funkadm_8cpp_ae84e6e7e36b1ecf7e591b729ad21c4de}
+функция (админа) вывода информации о каждом пользователе на экран в виде списка. 
+\begin{DoxyParams}{Аргументы}
+{\em beg} & -\/ указатель на начало списка \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызовов\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{funkadm_8cpp_ae84e6e7e36b1ecf7e591b729ad21c4de_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{funkadm_8cpp_ae84e6e7e36b1ecf7e591b729ad21c4de_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{funkadm_8cpp_a17c795e769804ac60898af2bc625a930}{\index{funkadm.\-cpp@{funkadm.\-cpp}!repass@{repass}}
+\index{repass@{repass}!funkadm.cpp@{funkadm.\-cpp}}
+\subsubsection[{repass}]{\setlength{\rightskip}{0pt plus 5cm}void repass (
+\begin{DoxyParamCaption}
+\item[{{\bf admin} \&}]{adm}
+\end{DoxyParamCaption}
+)}}\label{funkadm_8cpp_a17c795e769804ac60898af2bc625a930}
+функция (админа) изменения пароля 
+\begin{DoxyParams}{Аргументы}
+{\em adm} & -\/ ссылка на объект \char`\"{}админ\char`\"{} \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызовов\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{funkadm_8cpp_a17c795e769804ac60898af2bc625a930_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{funkadm_8cpp_a17c795e769804ac60898af2bc625a930_icgraph}
+\end{center}
+\end{figure}
+
+

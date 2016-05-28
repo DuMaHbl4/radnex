@@ -1,0 +1,30 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$main_8h.html#a60ebaaf075977f61458d3ebe11bd44d8" title="menu" alt="" coords="105,385,159,412"/>
+<area shape="rect" id="node3" href="$func_8cpp.html#ad2b7a2174e529e85e69cf24837c42bd3" title="load" alt="" coords="238,5,285,32"/>
+<area shape="rect" id="node4" href="$func_8cpp.html#a56309ab6c886ab5808deb57ee782027a" title="reg" alt="" coords="241,56,281,83"/>
+<area shape="rect" id="node6" href="$classuser.html#ae52afec3c032697288e12b4c898f8f58" title="расширеный вывод информации на экран " alt="" coords="374,132,474,159"/>
+<area shape="rect" id="node7" href="$classuser.html#ac5da3a95d4b0afc2b4a3f007138665ba" title="user::getId" alt="" coords="382,208,466,235"/>
+<area shape="rect" id="node8" href="$func_8cpp.html#a1caa495e38a523923f4a1ddd6e9dbecc" title="avt" alt="" coords="241,360,281,387"/>
+<area shape="rect" id="node11" href="$func_8cpp.html#ae49e4f4b5d423f5739a1cf8ea5f41f24" title="hello" alt="" coords="237,411,286,437"/>
+<area shape="rect" id="node17" href="$classuser.html#aedb931481b8ea24e8170923823251790" title="очиста вектора людей, отправивших привет " alt="" coords="213,512,309,539"/>
+<area shape="rect" id="node18" href="$classcircle.html#a98edcf827c503e0259996abe32cb257e" title="circle::reCoord" alt="" coords="208,563,315,589"/>
+<area shape="rect" id="node19" href="$classcircle.html#a667301d843f0a0edfc92d32a43826ca7" title="circle::reRad" alt="" coords="213,613,309,640"/>
+<area shape="rect" id="node20" href="$func_8cpp.html#afae8672ec62ae353f834d7e0e40b6084" title="showr" alt="" coords="233,461,290,488"/>
+<area shape="rect" id="node22" href="$func_8cpp.html#a598b17494793268fcb7d4917d3179ee2" title="setting" alt="" coords="231,664,292,691"/>
+<area shape="rect" id="node25" href="$func_8cpp.html#a358800d72f371bf7ef84d0d6b3873e43" title="save" alt="" coords="236,309,287,336"/>
+<area shape="rect" id="node26" href="$funkadm_8cpp.html#a8f4700d134674d7f19c2446cb6587d85" title="poisk" alt="" coords="235,765,288,792"/>
+<area shape="rect" id="node27" href="$funkadm_8cpp.html#a8bb3ebad2e7493f6d9b5b835c541f1fd" title="delet" alt="" coords="236,208,287,235"/>
+<area shape="rect" id="node28" href="$funkadm_8cpp.html#ae84e6e7e36b1ecf7e591b729ad21c4de" title="pokas" alt="" coords="233,157,290,184"/>
+<area shape="rect" id="node29" href="$funkadm_8cpp.html#a17c795e769804ac60898af2bc625a930" title="repass" alt="" coords="231,715,292,741"/>
+<area shape="rect" id="node5" href="$classperson.html#a7152242a9cf64e4cc2d71ee32dbc4f4c" title="person::getMail" alt="" coords="369,56,479,83"/>
+<area shape="rect" id="node9" href="$classperson.html#a2ee9999b24bc3dfbc7da5003c4014d0a" title="person::avto" alt="" coords="377,309,471,336"/>
+<area shape="rect" id="node10" href="$classperson.html#a8c8175284e9e52ddbf4fa3c9a04cf536" title="person::getName" alt="" coords="363,259,485,285"/>
+<area shape="rect" id="node12" href="$classuser.html#a94f7a39e4562af925d339fb62dcf6b51" title="вывод самой важной информации о пользователе " alt="" coords="381,360,467,387"/>
+<area shape="rect" id="node13" href="$func_8cpp.html#ade050d1ceaa47cd21a06b898e5c89cf1" title="vect" alt="" coords="401,411,447,437"/>
+<area shape="rect" id="node14" href="$classcircle.html#acb03d8b165cd8119e0db27e3d1f25973" title="circle::getX" alt="" coords="380,461,468,488"/>
+<area shape="rect" id="node15" href="$classcircle.html#ac9a1cb1a59361d4c8aa2cfe97be9cd6b" title="circle::getY" alt="" coords="380,512,468,539"/>
+<area shape="rect" id="node16" href="$classcircle.html#a86f4fa52100c12e29c81a0d4cebcf47d" title="circle::getRad" alt="" coords="373,563,475,589"/>
+<area shape="rect" id="node21" href="$classuser.html#a6cf4003d298be5ecb383242f4639bdb9" title="user::hello" alt="" coords="383,613,465,640"/>
+<area shape="rect" id="node23" href="$classperson.html#a120e871984ef5e815edf939331af379d" title="person::pass" alt="" coords="375,715,473,741"/>
+<area shape="rect" id="node24" href="$classperson.html#ab6d360263a908819b73ea80ab6fdd1c8" title="person::rePass" alt="" coords="369,664,479,691"/>
+</map>
