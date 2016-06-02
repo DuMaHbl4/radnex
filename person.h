@@ -10,28 +10,35 @@ class circle///класс содержит информацию об окруж�
     ///координата центра окружности У		
     unsigned int y;
     ///радиус окружности
-    unsigned int rad;		
+    unsigned int radi;		
+    ///второй радиус окружности
+    unsigned int rado;
   public:
     ///конструктор по умолчанию
-    circle() {x=0; y=0; rad=0;} 
+    circle() {x=0; y=0; radi=0; rado=0;} 
     ///конструктор с параметрами
     ///@param вся информация об окружности
-    circle(unsigned int h, unsigned int i, unsigned int r) {x=h; y=i; rad=r;} 
+    circle(unsigned int h, unsigned int i, unsigned int ri, unsigned int ro) {x=h; y=i; radi=ri; rado=ro;} 
     ///@return х - координату по Х центра окружности
     unsigned int getX() const {return x;}	
     ///@return y - координату по у центра окружности
     unsigned int getY() const {return y;}
-    ///@return rad - радиус
-    unsigned int getRad() const {return rad;}
+    ///@return radi - радиус
+    unsigned int getRadi() const {return radi;}
+    ///@return rado - второй радиус
+    unsigned int getRado() const {return rado;}
     ///изменение радиуса
-    ///@param r - радиус	
-    void reRad(unsigned int r) {rad=r;}	
+    ///@param radi - радиус	
+    void reRadi(unsigned int r) {radi=r;}
+    ///изменение второго радиуса
+    ///@param rado - второй радиус
+    void reRado(unsigned int r) {rado=r;}	
     ///изменение координат
     ///@param h - x
     ///@param i - y	
     void reCoord(unsigned int h, unsigned int i) {x=h; y=i;}
     ///вывод всей информации об окружности на экран	
-    void showcir() const {cout << x << ' ' << y << ' ' << rad << ' ';} 
+    void showcir() const {cout << x << ' ' << y << ' ' << radi << ' ' << rado << ' ';} 
     ///перегруженый оператор <<
     friend ostream &operator<<(ostream &stream, circle cir);
     ///перегруженый оператор >>	
@@ -88,6 +95,10 @@ class user : public person ///класс "Пользователь" содерж
     unsigned int idVk;
     ///id в инстаграмме
     unsigned int idInst;
+    ///список людей, отправивших привет
+    vector <unsigned int> hi;
+    ///список друзей
+    vector <unsigned int> frnd;
   public:
     circle circ;		///<окружность с центром в местоположении пользователя, с радиусом ,в котором он желает видеть людей
     ///указатель на следующего пользователя
@@ -101,23 +112,39 @@ class user : public person ///класс "Пользователь" содерж
     void inst() const;		//просмотр инстаграм пользователя*/
     ///@return id - id пользователя 
     unsigned int getId() const {return id;}
+    ///@return idVk - id в соцсети
+    unsigned int getIdVk() const {return idVk;} 
     ///вывод самой важной информации о пользователе
-    void show() const {shov(); cout << "id: " << id;}
+    void show() const {shov(); cout << "id: " << id << " idVk: " << idVk;}
     ///расширеный вывод информации на экран
     void showad() const {shovad(); cout << " Id: " << id << " Id Вконтакте: " << idVk << " Instagram: " << idInst << endl;}
     ///перегруженый оператор <<  
     friend ostream &operator<<(ostream &stream, user usr);
     ///перегруженый оператор >>   
     friend istream &operator>>(istream &stream, user &usr);
-    vector <unsigned int> hi;	///<список людей отправивших "привет"
+    ///@return hi.size - число людей, отправиших привет
+    int getSiHi() const {return hi.size();}
+    ///возврат элемента вектора hi
+    ///@param l - номер возвращаемого элемента
+    ///@return hi[l] - lый элемент вектора hi
+    unsigned int getHi(const unsigned int& l) const {return hi[l];}
     ///получение привета от пользователя. функция добавляет в вектор id пользователя, отправившего "привет"
     ///@param id - id пользователя, отправившего "привет"
     void hello (const unsigned int& id) {hi.push_back(id);}
     ///очиста вектора людей, отправивших привет
     void clearHi () {hi.clear();}
-    /*vector <unsigned int> frnd;
+    ///@return frnd.size - число друзей
+    int getSiFr() const {return frnd.size();}
+    ///возврат элемента вектора frnd
+    ///@param l - номер возвращаемого элемента
+    ///@return frnd[l] - lый элемент вектора frnd
+    unsigned int getFr(const unsigned int& l) const {return frnd[l];}
+    ///добавление id друга в список 
+    ///@param idVk - id друга Вк(т.к. информация о друзьях должна импортироваться из соцсетей)
     void addFrnd (const unsigned int& idVk) {frnd.push_back(idVk);}
-    void deleteFrnd (const unsigned int& idVk) {}*/
+    ///удаление друга из списка
+    ///@param idVk - id удаляемого друга
+    void deleteFrnd (const unsigned int& idVk);
   }; 
 
 ///@class admin
