@@ -37,13 +37,15 @@ istream \& \hyperlink{func_8cpp_a029cd4589dbaa21d0ff2463e3a7aab52}{operator$>$$>
 \item 
 int \hyperlink{func_8cpp_a358800d72f371bf7ef84d0d6b3873e43}{save} (char $\ast$data, \hyperlink{classuser}{user} $\ast$beg, \hyperlink{classadmin}{admin} \&adm)
 \item 
-bool \hyperlink{func_8cpp_ade050d1ceaa47cd21a06b898e5c89cf1}{vect} (const unsigned int \&x1, const unsigned int \&y1, const unsigned int \&x2, const unsigned int \&y2, const unsigned int \&rad)
+bool \hyperlink{func_8cpp_a28adcf5511a52ed6897f10d85ec5f511}{vect} (const unsigned int \&x1, const unsigned int \&y1, const unsigned int \&radi, const unsigned int \&x2, const unsigned int \&y2, const unsigned int \&rado, bool cot)
 \item 
 void \hyperlink{func_8cpp_afae8672ec62ae353f834d7e0e40b6084}{showr} (\hyperlink{classuser}{user} $\ast$beg, \hyperlink{classuser}{user} $\ast$p\-U)
 \item 
 \hyperlink{classuser}{user} $\ast$ \hyperlink{func_8cpp_a598b17494793268fcb7d4917d3179ee2}{setting} (int \&c, \hyperlink{classuser}{user} $\ast$beg, \hyperlink{classuser}{user} $\ast$p\-U)
 \item 
 void \hyperlink{func_8cpp_ae49e4f4b5d423f5739a1cf8ea5f41f24}{hello} (\hyperlink{classuser}{user} $\ast$beg, \hyperlink{classuser}{user} $\ast$p\-U)
+\item 
+void \hyperlink{func_8cpp_ad3d705107bb5471b54db773ea8e9a3fc}{frend} (\hyperlink{classuser}{user} $\ast$beg, \hyperlink{classuser}{user} $\ast$p\-U)
 \end{DoxyCompactItemize}
 
 
@@ -88,6 +90,48 @@ id, авторизовавшегося пользователя
 \end{figure}
 
 
+\hypertarget{func_8cpp_ad3d705107bb5471b54db773ea8e9a3fc}{\index{func.\-cpp@{func.\-cpp}!frend@{frend}}
+\index{frend@{frend}!func.cpp@{func.\-cpp}}
+\subsubsection[{frend}]{\setlength{\rightskip}{0pt plus 5cm}void frend (
+\begin{DoxyParamCaption}
+\item[{{\bf user} $\ast$}]{beg, }
+\item[{{\bf user} $\ast$}]{p\-U}
+\end{DoxyParamCaption}
+)}}\label{func_8cpp_ad3d705107bb5471b54db773ea8e9a3fc}
+функция -\/ меню связаное с взаимодействие пользователя со своими друзьями 
+\begin{DoxyParams}{Аргументы}
+{\em beg} & -\/ указатель на начало списка \\
+\hline
+{\em p\-U} & -\/ указатель на пользователя \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+beg -\/ указатель на начало списка 
+\end{DoxyReturn}
+
+
+Граф вызовов\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{func_8cpp_ad3d705107bb5471b54db773ea8e9a3fc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{func_8cpp_ad3d705107bb5471b54db773ea8e9a3fc_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{func_8cpp_ae49e4f4b5d423f5739a1cf8ea5f41f24}{\index{func.\-cpp@{func.\-cpp}!hello@{hello}}
 \index{hello@{hello}!func.cpp@{func.\-cpp}}
 \subsubsection[{hello}]{\setlength{\rightskip}{0pt plus 5cm}void hello (
@@ -105,11 +149,12 @@ id, авторизовавшегося пользователя
 \end{DoxyParams}
 
 
-Граф вызовов\-:\nopagebreak
+Граф вызовов\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=232pt]{func_8cpp_ae49e4f4b5d423f5739a1cf8ea5f41f24_cgraph}
+\includegraphics[width=238pt]{func_8cpp_ae49e4f4b5d423f5739a1cf8ea5f41f24_cgraph}
 \end{center}
 \end{figure}
 
@@ -225,7 +270,8 @@ beg -\/ указатель на начало списка
 \end{DoxyReturn}
 
 
-Граф вызовов\-:\nopagebreak
+Граф вызовов\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -345,11 +391,12 @@ beg -\/ указатель на начало списка
 \end{DoxyParams}
 
 
-Граф вызовов\-:\nopagebreak
+Граф вызовов\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=238pt]{func_8cpp_afae8672ec62ae353f834d7e0e40b6084_cgraph}
+\includegraphics[height=550pt]{func_8cpp_afae8672ec62ae353f834d7e0e40b6084_cgraph}
 \end{center}
 \end{figure}
 
@@ -365,37 +412,42 @@ beg -\/ указатель на начало списка
 \end{figure}
 
 
-\hypertarget{func_8cpp_ade050d1ceaa47cd21a06b898e5c89cf1}{\index{func.\-cpp@{func.\-cpp}!vect@{vect}}
+\hypertarget{func_8cpp_a28adcf5511a52ed6897f10d85ec5f511}{\index{func.\-cpp@{func.\-cpp}!vect@{vect}}
 \index{vect@{vect}!func.cpp@{func.\-cpp}}
 \subsubsection[{vect}]{\setlength{\rightskip}{0pt plus 5cm}bool vect (
 \begin{DoxyParamCaption}
 \item[{const unsigned int \&}]{x1, }
 \item[{const unsigned int \&}]{y1, }
+\item[{const unsigned int \&}]{radi, }
 \item[{const unsigned int \&}]{x2, }
 \item[{const unsigned int \&}]{y2, }
-\item[{const unsigned int \&}]{rad}
+\item[{const unsigned int \&}]{rado, }
+\item[{bool}]{cot}
 \end{DoxyParamCaption}
-)}}\label{func_8cpp_ade050d1ceaa47cd21a06b898e5c89cf1}
+)}}\label{func_8cpp_a28adcf5511a52ed6897f10d85ec5f511}
 Функция показа информации о векторе в удобном для пользователя виде. Выводит на экран расстояние между точками и направление от первой точки ко второй, если расстояние между точками меньше чем радиус, в котором пользователь желает видеть людей. Имеет пять входных параметров. 
 \begin{DoxyParams}{Аргументы}
 {\em x1} & -\/ параметр, отвечающий за координату Х точки начала вектора \\
 \hline
 {\em y1} & -\/ параметр, отвечающий за координату У точки начала вектора \\
 \hline
+{\em rad1} & -\/ параметр, отвечающий за радиус, в которм пользователь хочет видеть людей \\
+\hline
 {\em x2} & -\/ параметр, отвечающий за координату Х точки конца вектора \\
 \hline
 {\em y2} & -\/ параметр, отвечающий за координату У точки конца вектора \\
 \hline
-{\em rad} & -\/ параметр, отвечающий за радиус, в котром пользователь хочет видеть дюдей \\
+{\em rad2} & -\/ параметр, отвечающий за радиус, в котром пользователь хочет быть видимым для других людей \\
 \hline
 \end{DoxyParams}
 
 
-Граф вызова функции\-:\nopagebreak
+Граф вызова функции\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=348pt]{func_8cpp_ade050d1ceaa47cd21a06b898e5c89cf1_icgraph}
+\includegraphics[width=350pt]{func_8cpp_a28adcf5511a52ed6897f10d85ec5f511_icgraph}
 \end{center}
 \end{figure}
 

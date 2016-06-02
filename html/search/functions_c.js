@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vect',['vect',['../func_8cpp.html#ade050d1ceaa47cd21a06b898e5c89cf1',1,'vect(const unsigned int &amp;x1, const unsigned int &amp;y1, const unsigned int &amp;x2, const unsigned int &amp;y2, const unsigned int &amp;rad):&#160;func.cpp'],['../main_8h.html#ade050d1ceaa47cd21a06b898e5c89cf1',1,'vect(const unsigned int &amp;x1, const unsigned int &amp;y1, const unsigned int &amp;x2, const unsigned int &amp;y2, const unsigned int &amp;rad):&#160;func.cpp']]]
+  ['user',['user',['../classuser.html#a86f00bd9662cde8219dfd4601097fa3c',1,'user::user()'],['../classuser.html#ae45f1bafa984f122d9d5eb6740f2d545',1,'user::user(string n, string s, string p, string m, unsigned int d, unsigned int v, unsigned int i, circle c)']]]
 ];

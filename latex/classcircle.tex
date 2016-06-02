@@ -15,15 +15,19 @@
 \item 
 \hyperlink{classcircle_a4e0786fc75051f3bbe5de2e08ef9712d}{circle} ()
 \begin{DoxyCompactList}\small\item\em конструктор по умолчанию \end{DoxyCompactList}\item 
-\hyperlink{classcircle_ab01e334fbdc01bad4f219ecee424795d}{circle} (unsigned int h, unsigned int i, unsigned int r)
+\hyperlink{classcircle_a814bce3e75dd5f5f84c2518ae51c1387}{circle} (unsigned int h, unsigned int i, unsigned int ri, unsigned int ro)
 \item 
 unsigned int \hyperlink{classcircle_acb03d8b165cd8119e0db27e3d1f25973}{get\-X} () const 
 \item 
 unsigned int \hyperlink{classcircle_ac9a1cb1a59361d4c8aa2cfe97be9cd6b}{get\-Y} () const 
 \item 
-unsigned int \hyperlink{classcircle_a86f4fa52100c12e29c81a0d4cebcf47d}{get\-Rad} () const 
+unsigned int \hyperlink{classcircle_aee6a8fcac527547d0a31ac9a50a62f17}{get\-Radi} () const 
 \item 
-void \hyperlink{classcircle_a667301d843f0a0edfc92d32a43826ca7}{re\-Rad} (unsigned int r)
+unsigned int \hyperlink{classcircle_a36b0477cc7924d8d25b8c8257e122f21}{get\-Rado} () const 
+\item 
+void \hyperlink{classcircle_a8e43044386d87854871f37820a430ad7}{re\-Radi} (unsigned int r)
+\item 
+void \hyperlink{classcircle_a0b56a3bf90443f021dc861ef21ce788b}{re\-Rado} (unsigned int r)
 \item 
 void \hyperlink{classcircle_a98edcf827c503e0259996abe32cb257e}{re\-Coord} (unsigned int h, unsigned int i)
 \item 
@@ -53,15 +57,16 @@ istream \& \hyperlink{classcircle_a029cd4589dbaa21d0ff2463e3a7aab52}{operator$>$
 
 конструктор по умолчанию 
 
-\hypertarget{classcircle_ab01e334fbdc01bad4f219ecee424795d}{\index{circle@{circle}!circle@{circle}}
+\hypertarget{classcircle_a814bce3e75dd5f5f84c2518ae51c1387}{\index{circle@{circle}!circle@{circle}}
 \index{circle@{circle}!circle@{circle}}
 \subsubsection[{circle}]{\setlength{\rightskip}{0pt plus 5cm}circle\-::circle (
 \begin{DoxyParamCaption}
 \item[{unsigned int}]{h, }
 \item[{unsigned int}]{i, }
-\item[{unsigned int}]{r}
+\item[{unsigned int}]{ri, }
+\item[{unsigned int}]{ro}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcircle_ab01e334fbdc01bad4f219ecee424795d}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcircle_a814bce3e75dd5f5f84c2518ae51c1387}
 конструктор с параметрами 
 \begin{DoxyParams}{Аргументы}
 {\em вся} & информация об окружности \\
@@ -70,23 +75,46 @@ istream \& \hyperlink{classcircle_a029cd4589dbaa21d0ff2463e3a7aab52}{operator$>$
 
 
 \subsection{Методы}
-\hypertarget{classcircle_a86f4fa52100c12e29c81a0d4cebcf47d}{\index{circle@{circle}!get\-Rad@{get\-Rad}}
-\index{get\-Rad@{get\-Rad}!circle@{circle}}
-\subsubsection[{get\-Rad}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int circle\-::get\-Rad (
+\hypertarget{classcircle_aee6a8fcac527547d0a31ac9a50a62f17}{\index{circle@{circle}!get\-Radi@{get\-Radi}}
+\index{get\-Radi@{get\-Radi}!circle@{circle}}
+\subsubsection[{get\-Radi}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int circle\-::get\-Radi (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcircle_a86f4fa52100c12e29c81a0d4cebcf47d}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcircle_aee6a8fcac527547d0a31ac9a50a62f17}
 \begin{DoxyReturn}{Возвращает}
-rad -\/ радиус 
+radi -\/ радиус 
 \end{DoxyReturn}
 
 
-Граф вызова функции\-:\nopagebreak
+Граф вызова функции\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{classcircle_a86f4fa52100c12e29c81a0d4cebcf47d_icgraph}
+\includegraphics[width=350pt]{classcircle_aee6a8fcac527547d0a31ac9a50a62f17_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classcircle_a36b0477cc7924d8d25b8c8257e122f21}{\index{circle@{circle}!get\-Rado@{get\-Rado}}
+\index{get\-Rado@{get\-Rado}!circle@{circle}}
+\subsubsection[{get\-Rado}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int circle\-::get\-Rado (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcircle_a36b0477cc7924d8d25b8c8257e122f21}
+\begin{DoxyReturn}{Возвращает}
+rado -\/ второй радиус 
+\end{DoxyReturn}
+
+
+Граф вызова функции\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcircle_a36b0477cc7924d8d25b8c8257e122f21_icgraph}
 \end{center}
 \end{figure}
 
@@ -103,7 +131,8 @@ rad -\/ радиус
 \end{DoxyReturn}
 
 
-Граф вызова функции\-:\nopagebreak
+Граф вызова функции\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -124,7 +153,8 @@ y -\/ координату по у центра окружности
 \end{DoxyReturn}
 
 
-Граф вызова функции\-:\nopagebreak
+Граф вызова функции\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -159,25 +189,50 @@ y -\/ координату по у центра окружности
 \end{figure}
 
 
-\hypertarget{classcircle_a667301d843f0a0edfc92d32a43826ca7}{\index{circle@{circle}!re\-Rad@{re\-Rad}}
-\index{re\-Rad@{re\-Rad}!circle@{circle}}
-\subsubsection[{re\-Rad}]{\setlength{\rightskip}{0pt plus 5cm}void circle\-::re\-Rad (
+\hypertarget{classcircle_a8e43044386d87854871f37820a430ad7}{\index{circle@{circle}!re\-Radi@{re\-Radi}}
+\index{re\-Radi@{re\-Radi}!circle@{circle}}
+\subsubsection[{re\-Radi}]{\setlength{\rightskip}{0pt plus 5cm}void circle\-::re\-Radi (
 \begin{DoxyParamCaption}
 \item[{unsigned int}]{r}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcircle_a667301d843f0a0edfc92d32a43826ca7}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcircle_a8e43044386d87854871f37820a430ad7}
 изменение радиуса 
 \begin{DoxyParams}{Аргументы}
-{\em r} & -\/ радиус \\
+{\em radi} & -\/ радиус \\
 \hline
 \end{DoxyParams}
 
 
-Граф вызова функции\-:\nopagebreak
+Граф вызова функции\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=304pt]{classcircle_a667301d843f0a0edfc92d32a43826ca7_icgraph}
+\includegraphics[width=306pt]{classcircle_a8e43044386d87854871f37820a430ad7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classcircle_a0b56a3bf90443f021dc861ef21ce788b}{\index{circle@{circle}!re\-Rado@{re\-Rado}}
+\index{re\-Rado@{re\-Rado}!circle@{circle}}
+\subsubsection[{re\-Rado}]{\setlength{\rightskip}{0pt plus 5cm}void circle\-::re\-Rado (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classcircle_a0b56a3bf90443f021dc861ef21ce788b}
+изменение второго радиуса 
+\begin{DoxyParams}{Аргументы}
+{\em rado} & -\/ второй радиус \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызова функции\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{classcircle_a0b56a3bf90443f021dc861ef21ce788b_icgraph}
 \end{center}
 \end{figure}
 

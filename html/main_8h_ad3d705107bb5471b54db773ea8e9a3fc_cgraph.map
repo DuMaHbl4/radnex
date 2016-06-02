@@ -1,0 +1,13 @@
+<map id="frend" name="frend">
+<area shape="rect" id="node2" href="$classuser.html#a151262fa947be0aa4b4e60815fa30311" title="user::getSiFr" alt="" coords="114,5,211,32"/>
+<area shape="rect" id="node3" href="$classuser.html#a7ad76f62c70b27c04364868d06dd9122" title="user::getFr" alt="" coords="120,56,205,83"/>
+<area shape="rect" id="node4" href="$classuser.html#a81accd6ff251050e75c3907b0b974fdd" title="user::getIdVk" alt="" coords="113,107,213,133"/>
+<area shape="rect" id="node5" href="$classuser.html#a94f7a39e4562af925d339fb62dcf6b51" title="вывод самой важной информации о пользователе " alt="" coords="119,157,206,184"/>
+<area shape="rect" id="node6" href="$func_8cpp.html#a28adcf5511a52ed6897f10d85ec5f511" title="vect" alt="" coords="139,208,186,235"/>
+<area shape="rect" id="node7" href="$classcircle.html#acb03d8b165cd8119e0db27e3d1f25973" title="circle::getX" alt="" coords="119,259,207,285"/>
+<area shape="rect" id="node8" href="$classcircle.html#ac9a1cb1a59361d4c8aa2cfe97be9cd6b" title="circle::getY" alt="" coords="119,309,207,336"/>
+<area shape="rect" id="node9" href="$classcircle.html#aee6a8fcac527547d0a31ac9a50a62f17" title="circle::getRadi" alt="" coords="109,360,216,387"/>
+<area shape="rect" id="node10" href="$classcircle.html#a36b0477cc7924d8d25b8c8257e122f21" title="circle::getRado" alt="" coords="107,411,218,437"/>
+<area shape="rect" id="node11" href="$classuser.html#a8bb439019ca20f3ccdbf8665ad0e7713" title="user::addFrnd" alt="" coords="111,461,214,488"/>
+<area shape="rect" id="node12" href="$classuser.html#a032d35412b49df18b46a0bc17fd9747e" title="user::deleteFrnd" alt="" coords="105,512,221,539"/>
+</map>

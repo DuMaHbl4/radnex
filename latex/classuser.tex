@@ -37,23 +37,35 @@
 \item 
 unsigned int \hyperlink{classuser_ac5da3a95d4b0afc2b4a3f007138665ba}{get\-Id} () const 
 \item 
+unsigned int \hyperlink{classuser_a81accd6ff251050e75c3907b0b974fdd}{get\-Id\-Vk} () const 
+\item 
 void \hyperlink{classuser_a94f7a39e4562af925d339fb62dcf6b51}{show} () const 
 \begin{DoxyCompactList}\small\item\em вывод самой важной информации о пользователе \end{DoxyCompactList}\item 
 void \hyperlink{classuser_ae52afec3c032697288e12b4c898f8f58}{showad} () const 
 \begin{DoxyCompactList}\small\item\em расширеный вывод информации на экран \end{DoxyCompactList}\item 
+int \hyperlink{classuser_aa14a0ed8834e2314bea554dba24eb4b9}{get\-Si\-Hi} () const 
+\item 
+unsigned int \hyperlink{classuser_aa6ed6a662ee8c07105ce1fb0a58c3532}{get\-Hi} (const unsigned int \&l) const 
+\item 
 void \hyperlink{classuser_a6cf4003d298be5ecb383242f4639bdb9}{hello} (const unsigned int \&id)
 \item 
 void \hyperlink{classuser_aedb931481b8ea24e8170923823251790}{clear\-Hi} ()
-\begin{DoxyCompactList}\small\item\em очиста вектора людей, отправивших привет \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em очиста вектора людей, отправивших привет \end{DoxyCompactList}\item 
+int \hyperlink{classuser_a151262fa947be0aa4b4e60815fa30311}{get\-Si\-Fr} () const 
+\item 
+unsigned int \hyperlink{classuser_a7ad76f62c70b27c04364868d06dd9122}{get\-Fr} (const unsigned int \&l) const 
+\item 
+void \hyperlink{classuser_a8bb439019ca20f3ccdbf8665ad0e7713}{add\-Frnd} (const unsigned int \&id\-Vk)
+\item 
+void \hyperlink{classuser_a032d35412b49df18b46a0bc17fd9747e}{delete\-Frnd} (const unsigned int \&id\-Vk)
+\end{DoxyCompactItemize}
 \subsection*{Открытые атрибуты}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classcircle}{circle} \hyperlink{classuser_aa3c75aaac5c22cc183ddf6da3c1a0a5e}{circ}
 \item 
 \hyperlink{classuser}{user} $\ast$ \hyperlink{classuser_aea47cda4229402a71223b4c5619fae97}{next}
-\begin{DoxyCompactList}\small\item\em указатель на следующего пользователя \end{DoxyCompactList}\item 
-vector$<$ unsigned int $>$ \hyperlink{classuser_a3818c768915004dd7263312cd5253bbd}{hi}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em указатель на следующего пользователя \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Друзья}
 \begin{DoxyCompactItemize}
 \item 
@@ -101,6 +113,30 @@ istream \& \hyperlink{classuser_a7fd4b22d0a1c241217d6d30c0af07078}{operator$>$$>
 
 
 \subsection{Методы}
+\hypertarget{classuser_a8bb439019ca20f3ccdbf8665ad0e7713}{\index{user@{user}!add\-Frnd@{add\-Frnd}}
+\index{add\-Frnd@{add\-Frnd}!user@{user}}
+\subsubsection[{add\-Frnd}]{\setlength{\rightskip}{0pt plus 5cm}void user\-::add\-Frnd (
+\begin{DoxyParamCaption}
+\item[{const unsigned int \&}]{id\-Vk}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classuser_a8bb439019ca20f3ccdbf8665ad0e7713}
+добавление id друга в список 
+\begin{DoxyParams}{Аргументы}
+{\em id\-Vk} & -\/ id друга Вк(т.\-к. информация о друзьях должна импортироваться из соцсетей) \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызова функции\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classuser_a8bb439019ca20f3ccdbf8665ad0e7713_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{classuser_aedb931481b8ea24e8170923823251790}{\index{user@{user}!clear\-Hi@{clear\-Hi}}
 \index{clear\-Hi@{clear\-Hi}!user@{user}}
 \subsubsection[{clear\-Hi}]{\setlength{\rightskip}{0pt plus 5cm}void user\-::clear\-Hi (
@@ -123,6 +159,84 @@ istream \& \hyperlink{classuser_a7fd4b22d0a1c241217d6d30c0af07078}{operator$>$$>
 \end{figure}
 
 
+\hypertarget{classuser_a032d35412b49df18b46a0bc17fd9747e}{\index{user@{user}!delete\-Frnd@{delete\-Frnd}}
+\index{delete\-Frnd@{delete\-Frnd}!user@{user}}
+\subsubsection[{delete\-Frnd}]{\setlength{\rightskip}{0pt plus 5cm}void user\-::delete\-Frnd (
+\begin{DoxyParamCaption}
+\item[{const unsigned int \&}]{id\-Vk}
+\end{DoxyParamCaption}
+)}}\label{classuser_a032d35412b49df18b46a0bc17fd9747e}
+удаление друга из списка 
+\begin{DoxyParams}{Аргументы}
+{\em id\-Vk} & -\/ id удаляемого друга \\
+\hline
+\end{DoxyParams}
+
+
+Граф вызова функции\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classuser_a032d35412b49df18b46a0bc17fd9747e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classuser_a7ad76f62c70b27c04364868d06dd9122}{\index{user@{user}!get\-Fr@{get\-Fr}}
+\index{get\-Fr@{get\-Fr}!user@{user}}
+\subsubsection[{get\-Fr}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int user\-::get\-Fr (
+\begin{DoxyParamCaption}
+\item[{const unsigned int \&}]{l}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classuser_a7ad76f62c70b27c04364868d06dd9122}
+возврат элемента вектора frnd 
+\begin{DoxyParams}{Аргументы}
+{\em l} & -\/ номер возвращаемого элемента \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+frnd\mbox{[}l\mbox{]} -\/ lый элемент вектора frnd 
+\end{DoxyReturn}
+
+
+Граф вызова функции\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classuser_a7ad76f62c70b27c04364868d06dd9122_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classuser_aa6ed6a662ee8c07105ce1fb0a58c3532}{\index{user@{user}!get\-Hi@{get\-Hi}}
+\index{get\-Hi@{get\-Hi}!user@{user}}
+\subsubsection[{get\-Hi}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int user\-::get\-Hi (
+\begin{DoxyParamCaption}
+\item[{const unsigned int \&}]{l}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classuser_aa6ed6a662ee8c07105ce1fb0a58c3532}
+возврат элемента вектора hi 
+\begin{DoxyParams}{Аргументы}
+{\em l} & -\/ номер возвращаемого элемента \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+hi\mbox{[}l\mbox{]} -\/ lый элемент вектора hi 
+\end{DoxyReturn}
+
+
+Граф вызова функции\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classuser_aa6ed6a662ee8c07105ce1fb0a58c3532_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{classuser_ac5da3a95d4b0afc2b4a3f007138665ba}{\index{user@{user}!get\-Id@{get\-Id}}
 \index{get\-Id@{get\-Id}!user@{user}}
 \subsubsection[{get\-Id}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int user\-::get\-Id (
@@ -140,6 +254,72 @@ id -\/ id пользователя
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{classuser_ac5da3a95d4b0afc2b4a3f007138665ba_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classuser_a81accd6ff251050e75c3907b0b974fdd}{\index{user@{user}!get\-Id\-Vk@{get\-Id\-Vk}}
+\index{get\-Id\-Vk@{get\-Id\-Vk}!user@{user}}
+\subsubsection[{get\-Id\-Vk}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int user\-::get\-Id\-Vk (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classuser_a81accd6ff251050e75c3907b0b974fdd}
+\begin{DoxyReturn}{Возвращает}
+id\-Vk -\/ id в соцсети 
+\end{DoxyReturn}
+
+
+Граф вызова функции\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classuser_a81accd6ff251050e75c3907b0b974fdd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classuser_a151262fa947be0aa4b4e60815fa30311}{\index{user@{user}!get\-Si\-Fr@{get\-Si\-Fr}}
+\index{get\-Si\-Fr@{get\-Si\-Fr}!user@{user}}
+\subsubsection[{get\-Si\-Fr}]{\setlength{\rightskip}{0pt plus 5cm}int user\-::get\-Si\-Fr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classuser_a151262fa947be0aa4b4e60815fa30311}
+\begin{DoxyReturn}{Возвращает}
+frnd.\-size -\/ число друзей 
+\end{DoxyReturn}
+
+
+Граф вызова функции\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classuser_a151262fa947be0aa4b4e60815fa30311_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classuser_aa14a0ed8834e2314bea554dba24eb4b9}{\index{user@{user}!get\-Si\-Hi@{get\-Si\-Hi}}
+\index{get\-Si\-Hi@{get\-Si\-Hi}!user@{user}}
+\subsubsection[{get\-Si\-Hi}]{\setlength{\rightskip}{0pt plus 5cm}int user\-::get\-Si\-Hi (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classuser_aa14a0ed8834e2314bea554dba24eb4b9}
+\begin{DoxyReturn}{Возвращает}
+hi.\-size -\/ число людей, отправиших привет 
+\end{DoxyReturn}
+
+
+Граф вызова функции\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classuser_aa14a0ed8834e2314bea554dba24eb4b9_icgraph}
 \end{center}
 \end{figure}
 
@@ -180,7 +360,8 @@ id -\/ id пользователя
 
 
 
-Граф вызова функции\-:\nopagebreak
+Граф вызова функции\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -202,7 +383,8 @@ id -\/ id пользователя
 
 
 
-Граф вызова функции\-:\nopagebreak
+Граф вызова функции\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -244,10 +426,7 @@ id -\/ id пользователя
 \hypertarget{classuser_aa3c75aaac5c22cc183ddf6da3c1a0a5e}{\index{user@{user}!circ@{circ}}
 \index{circ@{circ}!user@{user}}
 \subsubsection[{circ}]{\setlength{\rightskip}{0pt plus 5cm}{\bf circle} user\-::circ}}\label{classuser_aa3c75aaac5c22cc183ddf6da3c1a0a5e}
-окружность с центром в местоположении пользователя, с радиусом ,в котором он желает видеть людей \hypertarget{classuser_a3818c768915004dd7263312cd5253bbd}{\index{user@{user}!hi@{hi}}
-\index{hi@{hi}!user@{user}}
-\subsubsection[{hi}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$unsigned int$>$ user\-::hi}}\label{classuser_a3818c768915004dd7263312cd5253bbd}
-список людей отправивших \char`\"{}привет\char`\"{} \hypertarget{classuser_aea47cda4229402a71223b4c5619fae97}{\index{user@{user}!next@{next}}
+окружность с центром в местоположении пользователя, с радиусом ,в котором он желает видеть людей \hypertarget{classuser_aea47cda4229402a71223b4c5619fae97}{\index{user@{user}!next@{next}}
 \index{next@{next}!user@{user}}
 \subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf user}$\ast$ user\-::next}}\label{classuser_aea47cda4229402a71223b4c5619fae97}
 
@@ -256,6 +435,7 @@ id -\/ id пользователя
 
 
 
-Объявления и описания членов класса находятся в файле\-:\begin{DoxyCompactItemize}
+Объявления и описания членов классов находятся в файлах\-:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{person_8h}{person.\-h}\end{DoxyCompactItemize}
+\hyperlink{person_8h}{person.\-h}\item 
+\hyperlink{person_8cpp}{person.\-cpp}\end{DoxyCompactItemize}

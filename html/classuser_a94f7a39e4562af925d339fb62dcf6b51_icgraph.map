@@ -1,6 +1,7 @@
 <map id="user::show" name="user::show">
-<area shape="rect" id="node2" href="$main_8h.html#afae8672ec62ae353f834d7e0e40b6084" title="showr" alt="" coords="142,5,199,32"/>
-<area shape="rect" id="node5" href="$main_8h.html#ae49e4f4b5d423f5739a1cf8ea5f41f24" title="hello" alt="" coords="146,56,195,83"/>
-<area shape="rect" id="node3" href="$menu_8cpp.html#a60ebaaf075977f61458d3ebe11bd44d8" title="menu" alt="" coords="249,31,303,57"/>
-<area shape="rect" id="node4" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="352,31,403,57"/>
+<area shape="rect" id="node2" href="$main_8h.html#afae8672ec62ae353f834d7e0e40b6084" title="showr" alt="" coords="241,56,298,83"/>
+<area shape="rect" id="node5" href="$main_8h.html#ae49e4f4b5d423f5739a1cf8ea5f41f24" title="hello" alt="" coords="245,5,294,32"/>
+<area shape="rect" id="node6" href="$main_8h.html#ad3d705107bb5471b54db773ea8e9a3fc" title="frend" alt="" coords="141,107,192,133"/>
+<area shape="rect" id="node3" href="$menu_8cpp.html#a60ebaaf075977f61458d3ebe11bd44d8" title="menu" alt="" coords="347,56,402,83"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="451,56,501,83"/>
 </map>

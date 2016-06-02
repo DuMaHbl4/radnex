@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['mail',['mail',['../classperson.html#af68704ea11f6f084f54493b87a48200c',1,'person']]]
+  ['name',['name',['../classperson.html#a26e1abc114185d5c4d7d320c516d9d1e',1,'person']]],
+  ['next',['next',['../classuser.html#aea47cda4229402a71223b4c5619fae97',1,'user']]]
 ];

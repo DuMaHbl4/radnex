@@ -10,8 +10,8 @@ var indexSectionsWithContent =
   0: "acdfghlmnoprsuv",
   1: "acpu",
   2: "fmpr",
-  3: "acdghlmoprsuv",
-  4: "chmnps",
+  3: "acdfghlmoprsuv",
+  4: "cmnps",
   5: "o",
   6: "r"
 };

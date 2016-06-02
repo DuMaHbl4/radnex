@@ -9,7 +9,8 @@
 \includegraphics[width=196pt]{main_8h__incl}
 \end{center}
 \end{figure}
-Граф файлов, в которые включается этот файл\-:\nopagebreak
+Граф файлов, в которые включается этот файл\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -44,6 +45,8 @@ void \hyperlink{main_8h_a17c795e769804ac60898af2bc625a930}{repass} (\hyperlink{c
 void \hyperlink{main_8h_ae49e4f4b5d423f5739a1cf8ea5f41f24}{hello} (\hyperlink{classuser}{user} $\ast$beg, \hyperlink{classuser}{user} $\ast$p\-U)
 \item 
 bool \hyperlink{main_8h_ade050d1ceaa47cd21a06b898e5c89cf1}{vect} (const unsigned int \&x1, const unsigned int \&y1, const unsigned int \&x2, const unsigned int \&y2, const unsigned int \&rad)
+\item 
+void \hyperlink{main_8h_ad3d705107bb5471b54db773ea8e9a3fc}{frend} (\hyperlink{classuser}{user} $\ast$beg, \hyperlink{classuser}{user} $\ast$p\-U)
 \end{DoxyCompactItemize}
 
 
@@ -122,6 +125,48 @@ id, авторизовавшегося пользователя
 \end{figure}
 
 
+\hypertarget{main_8h_ad3d705107bb5471b54db773ea8e9a3fc}{\index{main.\-h@{main.\-h}!frend@{frend}}
+\index{frend@{frend}!main.h@{main.\-h}}
+\subsubsection[{frend}]{\setlength{\rightskip}{0pt plus 5cm}void frend (
+\begin{DoxyParamCaption}
+\item[{{\bf user} $\ast$}]{beg, }
+\item[{{\bf user} $\ast$}]{p\-U}
+\end{DoxyParamCaption}
+)}}\label{main_8h_ad3d705107bb5471b54db773ea8e9a3fc}
+функция -\/ меню связаное с взаимодействие пользователя со своими друзьями 
+\begin{DoxyParams}{Аргументы}
+{\em beg} & -\/ указатель на начало списка \\
+\hline
+{\em p\-U} & -\/ указатель на пользователя \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+beg -\/ указатель на начало списка 
+\end{DoxyReturn}
+
+
+Граф вызовов\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{main_8h_ad3d705107bb5471b54db773ea8e9a3fc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Граф вызова функции\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8h_ad3d705107bb5471b54db773ea8e9a3fc_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{main_8h_ae49e4f4b5d423f5739a1cf8ea5f41f24}{\index{main.\-h@{main.\-h}!hello@{hello}}
 \index{hello@{hello}!main.h@{main.\-h}}
 \subsubsection[{hello}]{\setlength{\rightskip}{0pt plus 5cm}void hello (
@@ -139,11 +184,12 @@ id, авторизовавшегося пользователя
 \end{DoxyParams}
 
 
-Граф вызовов\-:\nopagebreak
+Граф вызовов\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=232pt]{main_8h_ae49e4f4b5d423f5739a1cf8ea5f41f24_cgraph}
+\includegraphics[width=238pt]{main_8h_ae49e4f4b5d423f5739a1cf8ea5f41f24_cgraph}
 \end{center}
 \end{figure}
 
@@ -202,7 +248,8 @@ beg -\/ указатель на начало списка
 \end{DoxyParams}
 
 
-Граф вызовов\-:\nopagebreak
+Граф вызовов\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -313,7 +360,8 @@ beg -\/ указатель на начало списка
 \end{DoxyReturn}
 
 
-Граф вызовов\-:\nopagebreak
+Граф вызовов\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -467,11 +515,12 @@ beg -\/ указатель на начало списка
 \end{DoxyParams}
 
 
-Граф вызовов\-:\nopagebreak
+Граф вызовов\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=238pt]{main_8h_afae8672ec62ae353f834d7e0e40b6084_cgraph}
+\includegraphics[height=550pt]{main_8h_afae8672ec62ae353f834d7e0e40b6084_cgraph}
 \end{center}
 \end{figure}
 
@@ -498,40 +547,3 @@ beg -\/ указатель на начало списка
 \item[{const unsigned int \&}]{rad}
 \end{DoxyParamCaption}
 )}}\label{main_8h_ade050d1ceaa47cd21a06b898e5c89cf1}
-vect Функция показа информации о векторе в удобном для пользователя виде. Выводит на экран расстояние между точками и направление от первой точки ко второй, если расстояние между точками меньше чем радиус, в котором пользователь желает видеть людей. Имеет пять входных параметров. 
-\begin{DoxyParams}{Аргументы}
-{\em x1} & -\/ параметр, отвечающий за координату Х точки начала вектора \\
-\hline
-{\em y1} & -\/ параметр, отвечающий за координату У точки начала вектора \\
-\hline
-{\em x2} & -\/ параметр, отвечающий за координату Х точки конца вектора \\
-\hline
-{\em y2} & -\/ параметр, отвечающий за координату У точки конца вектора \\
-\hline
-{\em rad} & -\/ параметр, отвечающий за радиус, в котром пользователь хочет видеть дюдей\\
-\hline
-\end{DoxyParams}
-Функция показа информации о векторе в удобном для пользователя виде. Выводит на экран расстояние между точками и направление от первой точки ко второй, если расстояние между точками меньше чем радиус, в котором пользователь желает видеть людей. Имеет пять входных параметров. 
-\begin{DoxyParams}{Аргументы}
-{\em x1} & -\/ параметр, отвечающий за координату Х точки начала вектора \\
-\hline
-{\em y1} & -\/ параметр, отвечающий за координату У точки начала вектора \\
-\hline
-{\em x2} & -\/ параметр, отвечающий за координату Х точки конца вектора \\
-\hline
-{\em y2} & -\/ параметр, отвечающий за координату У точки конца вектора \\
-\hline
-{\em rad} & -\/ параметр, отвечающий за радиус, в котром пользователь хочет видеть дюдей \\
-\hline
-\end{DoxyParams}
-
-
-Граф вызова функции\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=348pt]{main_8h_ade050d1ceaa47cd21a06b898e5c89cf1_icgraph}
-\end{center}
-\end{figure}
-
-
