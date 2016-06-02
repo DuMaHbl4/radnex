@@ -96,7 +96,7 @@ int menu(char* data)
             cout<<"\n-----Главное меню-----\n\n";
             hello(beg, pU);	//показ людей, отправивших привет
             pU->clearHi();
-            cout << "1. Изменить местоположение\n2. Изменить радиус\n3. Показать списсок людей рядом\n4. Найстройки аккаунта\n5. Выйти из аккаунта\n6. Выйти из программы\n";
+            cout << "1. Изменить местоположение\n2. Изменить радиус\n3. Друзья\n4. Показать списсок людей рядом\n5. Найстройки аккаунта\n6. Выйти из аккаунта\n7. Выйти из программы\n";
             while(1)
               {
               cin>>i;
@@ -112,8 +112,12 @@ int menu(char* data)
               {
               case 1:	//изменение координат
                 {
-                int a, b;
-                cout << "Введите новые координаты\nx=";
+                unsigned int a, b;
+                cout << "Текущеее местоположение:\nx=";
+                cout << pU->circ.getX();
+                cout << "\ny=";
+                cout << pU->circ.getY();
+                cout << "\nВведите новые координаты\nx=";
                 while(1)
                   {
                   cin >> a;
@@ -125,7 +129,7 @@ int menu(char* data)
                     }
                   else break;
                   }
-                cout << "\ny=";
+                cout << "y=";
                 while(1)
                   {
                   cin >> b;
@@ -143,11 +147,27 @@ int menu(char* data)
                 } 
               case 2:	//изменение радиуса
                 {
-                int r; 
-                cout << "Введите новый радиус\n";
+                unsigned int ro, ri;
+                cout << "\nТекущая информация:\nРадиус в котором вы видите пользователей = ";
+                cout << pU->circ.getRadi();
+                cout << "\nРадиус в котором вы видимы для других = ";
+                cout << pU->circ.getRado(); 
+                cout << "\nВведите новый радиус в которм вы хотите видеть людей\n";
                 while(1)
                   {
-                  cin >> r;
+                  cin >> ri;
+                  if(cin.fail())
+                    {
+                    cin.clear();
+                    getline(cin, tmp);
+                    cout << "Введите целое число!\n";
+                    }
+                  else break;
+                  }
+                cout << "Введите новый радиус в которм вы хотите быть видимыми для других людей\n";
+                while(1)
+                  {
+                  cin >> ro;
                   if(cin.fail())
                     {
                     cin.clear();
@@ -156,16 +176,20 @@ int menu(char* data)
                     }
                   else break;
                   } 
-                pU->circ.reRad(r);
+                pU->circ.reRado(ro);
+                pU->circ.reRadi(ri);
                 break;
                 }
               case 3:
-                showr(beg, pU);	//функция показа списка людей рядом
+                frend(beg, pU);
                 break;
               case 4:
+                showr(beg, pU);	//функция показа списка людей рядом
+                break;
+              case 5:
                 beg=setting(c, beg, pU);	//функция настройки аккаунта
                 break;	
-              case 5:
+              case 6:
                 save(data, beg, adm);
                 pU=beg;
                 while(pU!=NULL)
@@ -178,10 +202,10 @@ int menu(char* data)
                 u=0;
                 c=1;
                 break;
-              case 6:
+              case 7:
                 c=4;
                 break;
-              default: cout<<"\nВведите одну из цифр от 1 до 6!\n";	
+              default: cout<<"\nВведите одну из цифр от 1 до 7!\n";	
               }
             if(c!=2) break;
             }
