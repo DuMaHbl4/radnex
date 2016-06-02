@@ -1,2 +1,2 @@
 all:
-	g++ main.cpp menu.cpp func.cpp funkadm.cpp -g -o radnex
+	g++ main.cpp menu.cpp func.cpp funkadm.cpp person.cpp -g -o radnex
