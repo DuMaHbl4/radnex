@@ -21,7 +21,7 @@ user* reg(unsigned int &d, user *beg, char* data)
   user *pU;
   string tmp;
   string n, s, m, p;
-  unsigned int v, i, a, b, r;
+  unsigned int v, i, a, b, ri, ro;
   ifstream fi;
   fi.open(data);
   fi >> d;
@@ -30,7 +30,7 @@ user* reg(unsigned int &d, user *beg, char* data)
   cout << "\n-----Регистрация------\n\n";
   cout << "Введите имя: ";
   cin >> n;
-  cout << "Фамилия: ";
+  cout << "\nФамилия: ";
   cin >> s;
   while(1)
     {
@@ -108,7 +108,7 @@ user* reg(unsigned int &d, user *beg, char* data)
   cout << "\nВведите расстояние в радиусе которого вы хотите искать людей: ";
   while(1)
     {
-    cin >> r;
+    cin >> ri;
     if(cin.fail())
       {
       cin.clear();
@@ -117,9 +117,21 @@ user* reg(unsigned int &d, user *beg, char* data)
       }
     else break;
     }
-  circle c(a, b, r);
+  cout << "\nВведите расстояние в радиусе которго вы хотите быть видимыми дляя доугиз пользователей: ";
+  while(1)
+    {
+    cin >> ro;
+    if(cin.fail())
+      {
+      cin.clear();
+      getline(cin, tmp);
+      cout << "\nВвндите число больше нуля!\n";
+      }
+    else break;
+    }
+  circle c(a, b, ri, ro);
   pU=new user(n, s, p, m, d, v, i, c);
-  pU->showad();
+  //pU->showad();
   end=beg;
   if(beg!=NULL)
     while(end->next!=NULL) end=end->next;	//поиск конца списка
@@ -183,7 +195,7 @@ istream &operator>>(istream &stream, admin &adm) //перегрузка опер
   return stream;
   }
   
-ostream &operator<<(ostream &stream, user usr)	//перегрузка оператора << класса user
+ostream &operator<<(ostream &stream, user usr)	//перегрузка оператора << класса user 
   {
   int i;
   stream << usr.id << ' ' << usr.idVk << ' ' << usr.idInst << ' ' << usr.circ;
@@ -191,7 +203,12 @@ ostream &operator<<(ostream &stream, user usr)	//перегрузка опера
     {
     stream << ' ' << usr.hi[i];
     }
-    stream << " 0 " << usr.password << ' ' << usr.mail << ' ' << usr.name << ' ' << usr.sername;
+  stream << " 0";
+  for(i=0; i < usr.frnd.size(); i++)
+    {
+    stream << ' ' << usr.frnd[i];
+    } 
+  stream << " 0 " << usr.password << ' ' << usr.mail << ' ' << usr.name << ' ' << usr.sername;
   return stream;
   } 
  
@@ -206,19 +223,26 @@ istream &operator>>(istream &stream, user &usr) //перегрузка опер�
       usr.hi.push_back(i);
     else break;
     }
-    stream  >> usr.password >> usr.mail >> usr.name >> usr.sername;
+  while(1)
+    {
+    stream >> i;
+    if(i!=0)
+      usr.frnd.push_back(i);
+    else break;
+    }
+  stream  >> usr.password >> usr.mail >> usr.name >> usr.sername;
   return stream;
   } 
   
 ostream &operator<<(ostream &stream, circle cir) //перегрузка оператора << класса circle 
   {
-  stream << cir.x << ' ' << cir.y << ' ' << cir.rad;
+  stream << cir.x << ' ' << cir.y << ' ' << cir.radi << ' ' << cir.rado;
   return stream;
   }
   
 istream &operator>>(istream &stream, circle &cir) //перегрузка оператора >> класса circle
   {
-  stream >> cir.x >> cir.y >> cir.rad;
+  stream >> cir.x >> cir.y >> cir.radi >> cir.rado;
   return stream;
   }
   
@@ -305,10 +329,11 @@ int save(char* data, user *beg , admin &adm)
 Функция показа информации о векторе в удобном для пользователя виде. Выводит на экран расстояние между точками и направление от первой точки ко второй, если расстояние между точками меньше чем радиус, в котором пользователь желает видеть людей. Имеет пять входных параметров.
 @param x1 - параметр, отвечающий за координату Х точки начала вектора
 @param y1 - параметр, отвечающий за координату У точки начала вектора
+@param rad1 - параметр, отвечающий за радиус, в которм пользователь хочет видеть людей
 @param x2 - параметр, отвечающий за координату Х точки конца вектора
 @param y2 - параметр, отвечающий за координату У точки конца вектора
-@param rad - параметр, отвечающий за радиус, в котром пользователь хочет видеть дюдей*/
-bool vect(const unsigned int& x1, const unsigned int& y1, const unsigned int& x2, const unsigned int& y2, const unsigned int& rad)
+@param rad2 - параметр, отвечающий за радиус, в котром пользователь хочет быть видимым для других людей*/
+bool vect(const unsigned int& x1, const unsigned int& y1, const unsigned int& radi, const unsigned int& x2, const unsigned int& y2, const unsigned int& rado, bool cot)
   {
   bool c=false;
   int dx, dy;
@@ -317,47 +342,50 @@ bool vect(const unsigned int& x1, const unsigned int& y1, const unsigned int& x2
   int i;
   dx=x2-x1; 
   dy=y2-y1; 
-  dist=sqrt(pow(dx,2)+pow(dy,2)); 
-  co=(dx)/(sqrt(pow(dx,2)+pow(dy,2))); 
-  rn=180*acos(co)/3.14; 
-  rc=rn;
-  if(dy<0) 
-  rc=360-rn;
-  rc=rc+22.5; 
-  for(i=0; i<8; i++)  
-    {
-    if(rc>=i*45 && rc<=(i+1)*45) break; 
-    }
-  if(dist<=rad) 
-    {
-    c=true;
-    cout << "На расстоянии " << dist << " метров.";
-    switch(i)
+  dist=sqrt(pow(dx,2)+pow(dy,2));
+  if(dist<=radi && dist<=rado)
+    { 
+    co=(dx)/(sqrt(pow(dx,2)+pow(dy,2))); 
+    rn=180*acos(co)/3.14; 
+    rc=rn;
+    if(dy<0) 
+    rc=360-rn;
+    rc=rc+22.5; 
+    for(i=0; i<8; i++)  
       {
-      case 0: 
-        cout << " На востоке";
-        break;
-      case 1:
-        cout << " На северо-востоке";
-        break;
-      case 2:
-        cout << " На севере";
-        break;
-      case 3:
-        cout << " На северо-западе";
-        break;
-      case 4:
-        cout << " На запaде";
-        break;
-      case 5:
-        cout << " На юго-западе";
-        break;
-      case 6:
-        cout << " На юге";
-        break;
-      case 7:
-        cout << " На юго-востоке";
-        break;
+      if(rc>=i*45 && rc<=(i+1)*45) break; 
+      }
+    c=true;
+    if(cot)
+      {
+      cout << "На расстоянии " << dist << " метров.";
+      switch(i)
+        {
+        case 0: 
+          cout << " На востоке";
+          break;
+        case 1:
+          cout << " На северо-востоке";
+          break;
+        case 2:
+          cout << " На севере";
+          break;
+        case 3:
+          cout << " На северо-западе";
+          break;
+        case 4:
+          cout << " На запaде";
+          break;
+        case 5:
+          cout << " На юго-западе";
+          break;
+        case 6:
+          cout << " На юге";
+          break;
+        case 7:
+          cout << " На юго-востоке";
+          break;
+          }
       }
     }
   return c;
@@ -368,27 +396,93 @@ bool vect(const unsigned int& x1, const unsigned int& y1, const unsigned int& x2
 @param pU - указатель на пользователя, который ищет людей в своем радиусе*/      
 void showr(user *beg, user *pU)
   {
+  bool frend;
+  bool nom;
+  int i;
   bool kont=false;
+  bool fr=false;
   string tmp;
   unsigned int id;
   user *pUs;		//указатель на юзера для перемещения по списку  
   pUs=beg;
-  cout << "Список людей в вашем радиусе:\n";
   while(pUs!=NULL)
     {
-    if(pU!=pUs)
+    if(pUs!=pU)
       {
-      if(vect(pU->circ.getX(), pU->circ.getY(), pUs->circ.getX(), pUs->circ.getY(), pU->circ.getRad()))
+      if(vect(pU->circ.getX(), pU->circ.getY(), pU->circ.getRadi(), pUs->circ.getX(), pUs->circ.getY(), pUs->circ.getRado(), false))
         {
-        cout << ' ';
-        pUs->show();
-        cout << endl;
-        kont=true;
+        kont = true;
+        for(i=0; i<pU->getSiFr(); i++)
+          {
+          if(pU->getFr(i)==pUs->getIdVk())
+            {
+            fr=true;
+            kont=false;
+            break;
+            }
+          }
         }
       }
+    pUs=pUs->next;
+    }
+  if(fr)
+    {
+    pUs=beg;
+    cout << "Дпузья в вашем радиусе:\n";
+    while(pUs!=NULL)
+      {
+      if(pUs!=pU)
+        {
+        if(vect(pU->circ.getX(), pU->circ.getY(), pU->circ.getRadi(), pUs->circ.getX(), pUs->circ.getY(), pUs->circ.getRado(), false))
+          {
+          for(i=0; i<pU->getSiFr(); i++)
+            {
+            if(pU->getFr(i)==pUs->getIdVk())
+              {
+              vect(pU->circ.getX(), pU->circ.getY(), pU->circ.getRadi(), pUs->circ.getX(), pUs->circ.getY(), pUs->circ.getRado(), true);
+              cout << ' ';
+              pUs->show();
+              cout << endl;
+              break;
+              }
+            }
+          }
+        }
       pUs=pUs->next;
+      }
     }
   if(kont)
+    {
+    pUs=beg;
+    cout << "\nПотенциальные знакомые:\n";
+    while(pUs!=NULL)
+      {
+      if(pU!=pUs)
+        {
+        if(vect(pU->circ.getX(), pU->circ.getY(), pU->circ.getRadi(), pUs->circ.getX(), pUs->circ.getY(), pUs->circ.getRado(), false))
+          {
+          frend=false;
+          for(i=0; i<pU->getSiFr(); i++)
+            {
+            if(pU->getFr(i)==pUs->getIdVk())
+              {
+              frend=true;
+              break;
+              }
+            }
+          if(!frend)
+            {
+            vect(pU->circ.getX(), pU->circ.getY(), pU->circ.getRadi(), pUs->circ.getX(), pUs->circ.getY(), pUs->circ.getRado(),true);
+            cout << ' ';
+            pUs->show();
+            cout << endl;
+            }
+          }
+        }
+      pUs=pUs->next;
+      }
+    }
+  if(kont||fr)
     {
     cout << "\nВведите id человека, которому хотите передать привет, введите 0 чтобы выйти в меню\n";
     while(1)
@@ -415,7 +509,6 @@ void showr(user *beg, user *pU)
         if(id==pUs->getId()) 
           {
           pUs->hello(pU->getId());
-          cout << pU->getId();
           kont=true;
           cout << "Привет отправлен\n";
           break;
@@ -425,7 +518,7 @@ void showr(user *beg, user *pU)
       if(!kont) cout << "Человека с таким Id еще нет\n";
       }
     }
-  else  cout << "пуст\n";
+  else  cout << "В вашем радиусе никого нет\n";
   }
 /**функция - меню настроек аккаунта пользователя(изменить пароль, удалить аккаунт)
 @param c - ссылка на переменную, контролирующую дальнейший выбор пункта меню. если пользователь выбирает удаление аккаунта происходит переход в меню авторизации, в других случаях в меню пользователя 
@@ -528,19 +621,19 @@ void hello(user *beg, user *pU)
   {
   unsigned int l;
   user *pUs;
-  if(pU->hi.size()>0)
+  if(pU->getSiHi()>0)
     {
     cout << "Вам передают привет:\n";
-    for(l=0; l<pU->hi.size(); l++)
+    for(l=0; l<pU->getSiHi(); l++)
       {
       pUs=beg;
       while(pUs!=NULL)
         {
-        if(pUs->getId()==pU->hi[l])
+        if(pUs->getId()==pU->getHi(l))
           {
           pUs->show();
           cout << ". ";
-          vect(pU->circ.getX(), pU->circ.getY(), pUs->circ.getX(), pUs->circ.getY(), pU->circ.getRad());
+          vect(pU->circ.getX(), pU->circ.getY(), pU->circ.getRadi(), pUs->circ.getX(), pUs->circ.getY(), pUs->circ.getRado(), true);
           }
         pUs=pUs->next;
         }
@@ -548,3 +641,122 @@ void hello(user *beg, user *pU)
     cout << "\n\n";
     }                                                                                                                                                                                                                                                                              
   }
+  
+/**функция - меню связаное с взаимодействие пользователя со своими друзьями
+@param beg - указатель на начало списка
+@param pU - указатель на пользователя
+@return beg - указатель на начало списка*/
+void frend(user *beg, user* pU)
+  {
+  bool nal=false;
+  user *pUs;
+  pUs=beg;
+  /*while(pUs!=NULL)
+    {
+    cout << (*pUs) << endl;
+    pUs=pUs->next;
+    }*/
+  bool kont;
+  unsigned int id;
+  string tmp;
+  int i;
+  int l;
+  cout << "-----Друзья-----\n\n";
+  cout << "1. Посмотрель весь список друзей\n2. Добавить друга\n3. Удалить друга\n4. Выйти в меню\n";
+  while(1)
+    {
+    cin >> i;
+    if(cin.fail())
+      {
+      cout << "\nВведите одно из чисел от 1 до 4!\n";
+      cin.clear();
+      getline(cin, tmp);
+      }
+    else break;
+    }
+  switch(i)
+    {
+    case 1:
+      kont=false;
+      for(l=0; l<pU->getSiFr(); l++)
+        {
+        pUs=beg;
+        while(pUs!=NULL)
+          {
+          if(pU->getFr(l)==pUs->getIdVk())
+            {
+            kont=true;
+            pUs->show();
+            cout << " Id Вк: " << pUs->getIdVk() << ' ' ;
+            vect(pU->circ.getX(), pU->circ.getY(), pU->circ.getRadi(), pUs->circ.getX(), pUs->circ.getY(), pUs->circ.getRado(), true);
+            cout << endl;
+            break;
+            }
+          pUs=pUs->next;
+          }
+        }
+      if(!kont) cout << "\nУ вас нет друзей\n";
+      break;
+    case 2:
+      kont = false;
+      cout << "Введите id Вконтакте вашего друга: ";
+      while(1)
+        {
+        cin >> id;
+        if(cin.fail())
+          {
+          cout << "\nВведите число > 0!\n";
+          cin.clear();
+          getline(cin, tmp);
+          }
+        else break; 
+        }
+      for(l=0; l<pU->getSiFr(); l++)
+        {
+        if(pU->getFr(l)==id)
+          {
+          nal=true;
+          pUs->show();
+          cout << " уже есть в списке ваших друзей\n";
+          break;
+          }
+        }
+      if(!nal)
+        {
+        pUs=beg;
+        while(pUs!=NULL)
+          {
+          if(pUs->getIdVk()==id)
+            {
+            pU->addFrnd(pUs->getIdVk());
+            pUs->show();
+            cout << " теперь в вашем списке друзей";
+            kont = true;
+            break;
+            }
+          pUs=pUs->next;
+          }
+        if(!kont) cout << "Пользователя с таким id нет!\n";
+        }
+      break;
+    case 3:
+      cout << "Введите id удаляемого друга: ";
+      while(1)
+        {
+        cin >> id;
+        if(cin.fail())
+          {
+          cout << "\nВведите число > 0!\n";
+          cin.clear();
+          getline(cin, tmp);
+          }
+        else break; 
+        }
+      pU->deleteFrnd(id);
+      break;
+    case 4:
+      break;
+    default: cout << "\nВведите одно из чисел от 1 до 4!\n";
+    }
+  }
+
